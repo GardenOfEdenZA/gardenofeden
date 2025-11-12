@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Garden Of Eden | The House Of Eden</title>
 
-  <!-- FAVICON -->
+  <!-- FAVICON (New Logo) -->
   <link rel="icon" href="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/logo.png" type="image/png">
 
-  <!-- Open Graph -->
+  <!-- Open Graph (Social Preview with New Logo) -->
   <meta property="og:title" content="The Garden Of Eden | The House Of Eden" />
   <meta property="og:description" content="Where Bliss Meets Bud. Premium THC cannabis. 18+ only." />
   <meta property="og:image" content="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/logo.png" />
@@ -52,9 +52,15 @@
     #age-verification-content {
       background: white; border-radius: 1rem; padding: 2rem; max-width: 90%; text-align: center;
     }
-    .logo-img { height: 40px; width: auto; object-fit: contain; }
-    .hero-logo { height: 80px; margin-bottom: 1.5rem; }
-    .footer-logo { height: 60px; margin-bottom: 1rem; }
+    .logo-img {
+      height: 48px; width: auto; object-fit: contain;
+    }
+    .hero-logo {
+      height: 180px; width: auto; margin: 0 auto 1rem; display: block;
+    }
+    .footer-logo {
+      height: 80px; width: auto; margin: 0 auto 1rem; display: block;
+    }
     .strain-title { font-family: 'Courier New', monospace; font-weight: bold; font-size: 2.5rem; letter-spacing: 2px; }
     .menu-title { font-family: 'Playfair Display', serif; font-weight: 700; }
   </style>
@@ -66,7 +72,7 @@
   <!-- AGE VERIFICATION -->
   <div id="age-verification">
     <div id="age-verification-content">
-      <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/logo.png" alt="The Garden Of Eden Logo" class="h-16 mx-auto mb-4">
+      <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/logo.png" alt="The Garden Of Eden Logo" class="h-24 mx-auto mb-4">
       <h2 class="text-2xl font-bold mb-4 text-primary">Age Verification</h2>
       <p class="mb-6 text-gray-700">You must be <strong>18+</strong> to enter.<br>By entering, you confirm you are of legal age.</p>
       <div class="flex gap-4 justify-center">
@@ -81,4 +87,166 @@
     <div class="container mx-auto px-4 py-3 flex justify-between items-center">
       <a href="#" class="flex items-center gap-2">
         <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/logo.png" alt="The Garden Of Eden Logo" class="logo-img">
-        <span class="text-xl font-bold hidden sm:inline">The Garden Of
+        <span class="text-xl font-bold hidden sm:inline">The Garden Of Eden</span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="#menu" class="hover:text-secondary transition text-sm md:text-base">Menu</a>
+        <a href="#join" class="hover:text-secondary transition text-sm md:text-base">Join</a>
+        <button id="cart-btn" class="flex items-center gap-1 hover:text-secondary text-sm md:text-base">
+          Cart <span id="cart-count" class="text-xs bg-secondary text-accent rounded-full w-5 h-5 flex items-center justify-center">0</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container mx-auto px-4 py-8">
+
+    <!-- HERO -->
+    <section class="hero text-white rounded-xl p-8 md:p-12 mb-12 text-center">
+      <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/logo.png" alt="The Garden Of Eden Logo" class="hero-logo">
+      <p class="text-lg italic mb-2">a.k.a. The House Of Eden</p>
+      <p class="text-xl mb-8 max-w-2xl mx-auto">Where Bliss Meets Bud...</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#join" class="bg-secondary hover:bg-amber-300 text-accent font-bold py-3 px-6 rounded-lg transition">Join Club</a>
+        <a href="#menu" class="bg-white hover:bg-gray-100 text-primary font-bold py-3 px-6 rounded-lg transition">View Menu</a>
+      </div>
+    </section>
+
+    <!-- MENU SECTION (FROM FLYER) -->
+    <section id="menu" class="mb-16">
+      <h2 class="text-3xl font-bold text-center mb-12 text-primary menu-title">Premium Cannabis Menu</h2>
+      <div class="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
+
+        <!-- STRAINS -->
+        <div class="mb-10 border-b pb-6">
+          <h3 class="text-2xl font-bold mb-4 text-primary">Strains: Tropical Skunk & Alpha Express</h3>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-green-50 p-5 rounded-lg">
+              <p class="text-lg font-semibold">10 grams</p>
+              <p class="text-2xl font-bold text-primary">R120</p>
+            </div>
+            <div class="bg-amber-50 p-5 rounded-lg">
+              <p class="text-lg font-semibold">40 grams</p>
+              <p class="text-2xl font-bold text-primary">R450</p>
+              <p class="text-sm text-secondary">(Save R30)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRE-ROLLED JOINTS -->
+        <div class="mb-10 border-b pb-6">
+          <h3 class="text-2xl font-bold mb-4 text-primary">Pre-rolled Joints</h3>
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="bg-blue-50 p-5 rounded-lg">
+              <p class="text-lg font-semibold">10x Outdoor Pre-rolls</p>
+              <p class="text-2xl font-bold text-primary">R300</p>
+            </div>
+            <div class="bg-purple-50 p-5 rounded-lg">
+              <p class="text-lg font-semibold">5x Greenhouse Pre-rolls</p>
+              <p class="text-2xl font-bold text-primary">R250</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- EDIBLES -->
+        <div class="mb-10">
+          <h3 class="text-2xl font-bold mb-4 text-primary">Edibles</h3>
+          <div class="space-y-4">
+            <div class="bg-red-50 p-5 rounded-lg">
+              <p class="text-lg font-semibold">Gummy Bears (10mg THC)</p>
+              <p class="text-sm">15x → R90 ‖ 30x → R150</p>
+            </div>
+            <div class="bg-orange-50 p-5 rounded-lg">
+              <p class="text-lg font-semibold">Leaf Gummies (50mg THC)</p>
+              <p class="text-sm">2x → R80 ‖ 5x → R200</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CALL TO ACTION -->
+        <div class="text-center mt-8">
+          <a href="https://instagram.com/GardenOfEdenZA" target="_blank" class="inline-block bg-primary text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 transition">
+            DM @GardenOfEdenZA
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MEMBERSHIP -->
+    <section id="join" class="bg-white rounded-xl shadow-lg p-8 mb-16">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6 text-primary">Join The House Of Eden</h2>
+        <p class="text-gray-600 mb-8">Exclusive drops, member pricing, and priority access.</p>
+        <button class="bg-secondary hover:bg-amber-300 text-accent font-bold py-3 px-8 rounded-lg transition" onclick="joinFree()">
+          Join Free (Basic)
+        </button>
+        <p class="mt-4 text-sm text-gray-500">Premium: R399/mo – Coming Soon</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-accent text-light py-10">
+    <div class="container mx-auto px-4 text-center">
+      <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/logo.png" alt="The Garden Of Eden Logo" class="footer-logo">
+      <p class="text-lg font-semibold">The Garden Of Eden ZA</p>
+      <p class="text-sm italic">a.k.a. The House Of Eden</p>
+      <div class="flex justify-center gap-4 mt-4">
+        <a href="https://facebook.com/GardenOfEdenZA" target="_blank"><i data-feather="facebook" class="w-6 h-6"></i></a>
+        <a href="https://x.com/GardenOfEdenZA" target="_blank"><i data-feather="twitter" class="w-6 h-6"></i></a>
+        <a href="https://instagram.com/GardenOfEdenZA" target="_blank"><i data-feather="instagram" class="w-6 h-6"></i></a>
+        <a href="https://tiktok.com/@GardenOfEdenZA" target="_blank"><i data-feather="youtube" class="w-6 h-6"></i></a>
+      </div>
+      <p class="text-sm mt-4">Not sold to persons under the age of 18. #LegalizeIt</p>
+      <p>&copy; <span id="year"></span>. Private use only.</p>
+    </div>
+  </footer>
+
+  <!-- CART & AGE LOGIC -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Age Gate
+    document.getElementById('verify-age').onclick = () => {
+      const birthYear = prompt("Enter your birth year (e.g. 1995):");
+      if (birthYear && new Date().getFullYear() - parseInt(birthYear) >= 18) {
+        document.getElementById('age-verification').remove();
+        localStorage.setItem('ageVerified', 'true');
+      } else {
+        alert("You must be 18+ to enter.");
+        window.location.href = "https://google.com";
+      }
+    };
+    document.getElementById('exit-site').onclick = () => window.location.href = "https://google.com";
+
+    if (localStorage.getItem('ageVerified') === 'true') {
+      document.getElementById('age-verification').remove();
+    } else {
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Cart
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    updateCartCount();
+
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartCount();
+      alert(`${name} added!`);
+    }
+
+    function updateCartCount() {
+      document.getElementById('cart-count').textContent = cart.length;
+    }
+
+    function joinFree() {
+      const email = prompt("Enter email to join The House Of Eden:");
+      if (email && email.includes('@')) alert("Welcome to The Garden!");
+    }
+
+    feather.replace();
+  </script>
+</body>
+</html>
