@@ -56,7 +56,11 @@
       color: #333;
     }
     .hero {
-      background: linear-gradient(rgba(26,58,50,0.9), rgba(26,58,50,0.9)), url('https://images.unsplash.com/photo-1516205651411-a1f726d29620?q=80&w=1600') center/cover;
+      background: 
+        linear-gradient(rgba(26,58,50,0.85), rgba(26,58,50,0.9)),
+        url('https://images.unsplash.com/photo-1516205651411-a1f726d29620?q=80&w=1600') center/cover,
+        url('https://i.postimg.cc/3xR5b3kM/garden-of-eden-logo-transparent.png') center/30% repeat;
+      background-blend-mode: overlay;
       color: white;
       border-radius: 1rem;
       overflow: hidden;
@@ -87,15 +91,9 @@
       transition: transform 0.3s ease;
       object-fit: cover;
     }
-    .product-img:hover {
-      transform: scale(1.02);
-    }
-    .product-desc {
-      font-size: 0.875rem;
-      color: #555;
-      margin-top: 0.5rem;
-      line-height: 1.5;
-    }
+    .product-img:hover { transform: scale(1.02); }
+    .product-desc { font-size: 0.875rem; color: #555; margin-top: 0.5rem; line-height: 1.5; }
+    .leaf-bg { background: url('https://i.postimg.cc/3xR5b3kM/garden-of-eden-logo-transparent.png') center/15% repeat; opacity: 0.05; }
 
     /* WHATSAPP FLOATING BUTTON */
     .whatsapp-float {
@@ -162,8 +160,8 @@
 
   <main class="container mx-auto px-6 py-12">
 
-    <!-- HERO -->
-    <section class="hero rounded-2xl p-10 md:p-16 mb-16 text-center">
+    <!-- HERO + WATERMARK -->
+    <section class="hero rounded-2xl p-10 md:p-16 mb-16 text-center relative">
       <img src="https://i.postimg.cc/3xR5b3kM/garden-of-eden-logo-transparent.png" alt="The Garden Of Eden Logo" class="hero-logo mb-6">
       <h1 class="text-5xl md:text-6xl font-bold mb-3 section-title">The Garden Of Eden</h1>
       <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">Cannabis Club</p>
@@ -175,108 +173,87 @@
 
     <!-- MENU -->
     <section id="menu" class="mb-20">
+      <div class="text-center mb-8">
+        <img src="https://i.postimg.cc/3xR5b3kM/garden-of-eden-logo-transparent.png" alt="Logo" class="h-12 mx-auto mb-2 opacity-70">
+        <p class="text-sm font-medium text-primary">Premium THC • Members Only</p>
+      </div>
       <h2 class="text-4xl font-bold text-center mb-12 text-primary section-title">Members Menu</h2>
-      <div class="menu-card p-10 max-w-5xl mx-auto">
+      <div class="menu-card p-10 max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
 
-        <!-- STRAINS -->
-        <div class="mb-12 pb-8 border-b border-gray-200">
-          <h3 class="text-2xl font-bold mb-6 text-primary">Strains: Tropical Skunk & Alpha Express</h3>
-          <div class="grid md:grid-cols-2 gap-8 items-start">
+        <!-- LEFT: PRODUCTS -->
+        <div class="md:col-span-2 space-y-12">
 
-            <!-- Tropical Skunk -->
-            <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-xl border border-green-100 text-center">
-              <img src="https://i.postimg.cc/rRCVR9G2/20251112-115445.jpg" alt="Tropical Skunk" class="w-full h-48 product-img mb-4">
-              <p class="text-lg font-semibold text-gray-800">10 grams</p>
-              <p class="price">R120</p>
-              <p class="product-desc">Sun-kissed sativa-dominant hybrid. Bursting with tropical pineapple and skunky earth notes. Uplifting, creative, and perfect for daytime vibes.</p>
+          <!-- STRAINS -->
+          <div class="pb-8 border-b border-gray-200">
+            <h3 class="text-2xl font-bold mb-6 text-primary">Strains</h3>
+            <div class="grid md:grid-cols-2 gap-6">
+
+              <!-- Tropical Skunk -->
+              <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-100 text-center">
+                <img src="https://i.postimg.cc/rRCVR9G2/20251112-115445.jpg" alt="Tropical Skunk" class="w-full h-40 product-img mb-3">
+                <p class="text-lg font-semibold">10g – R120</p>
+                <p class="product-desc text-xs">Sativa-dominant. Pineapple + skunk. Uplifting & creative.</p>
+              </div>
+
+              <!-- Alpha Express -->
+              <div class="bg-gradient-to-br from-amber-50 to-yellow-50 p-5 rounded-xl border border-amber-100 text-center">
+                <img src="https://i.postimg.cc/D4dv4cQS/20251112-115355.jpg" alt="Alpha Express" class="w-full h-40 product-img mb-3">
+                <p class="text-lg font-semibold">40g – R450 <span class="text-xs text-amber-700">(Save R30)</span></p>
+                <p class="product-desc text-xs">Indica. Citrus + pine. Deep relaxation & sleep aid.</p>
+              </div>
             </div>
+          </div>
 
-            <!-- Alpha Express -->
-            <div class="bg-gradient-to-br from-amber-50 to-yellow-50 p-6 rounded-xl border border-amber-100 text-center">
-              <img src="https://i.postimg.cc/D4dv4cQS/20251112-115355.jpg" alt="Alpha Express" class="w-full h-48 product-img mb-4">
-              <p class="text-lg font-semibold text-gray-800">40 grams</p>
-              <p class="price">R450</p>
-              <p class="text-sm text-amber-700 font-medium mb-1">(Save R30)</p>
-              <p class="product-desc">Premium indoor-grown indica. Dense buds with sweet citrus and pine aroma. Deep relaxation, pain relief, and sleep support.</p>
+          <!-- PRE-ROLLS & EDIBLES -->
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <img src="https://i.postimg.cc/2LFkLxdb/20251112-114115.jpg" alt="Pre-rolls" class="w-full h-36 product-img mb-3">
+              <p class="font-semibold text-sm">10x Pre-rolls – R300</p>
+            </div>
+            <div>
+              <img src="https://i.postimg.cc/pXsH2Gx5/IMG-20251103-144536.jpg" alt="Gummies" class="w-full h-36 product-img mb-3">
+              <p class="font-semibold text-sm">15x Gummies – R90</p>
             </div>
           </div>
         </div>
 
-        <!-- PRE-ROLLED JOINTS -->
-        <div class="mb-12 pb-8 border-b border-gray-200">
-          <h3 class="text-2xl font-bold mb-6 text-primary">Pre-rolled Joints</h3>
-          <div class="grid md:grid-cols-2 gap-8 items-start">
-            <div class="space-y-6">
-
-              <!-- Stoner Days -->
-              <div class="bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-xl border border-blue-100 text-center">
-                <img src="https://i.postimg.cc/2LFkLxdb/20251112-114115.jpg" alt="Stoner Days" class="w-full h-40 product-img mb-3">
-                <p class="text-lg font-semibold">10x Outdoor Pre-rolls</p>
-                <p class="price">R300</p>
-                <p class="text-xs italic text-gray-600 mb-2">Stoner Days™ – Premium, hand-rolled</p>
-                <p class="product-desc">Hand-rolled outdoor classics. Smooth burn, rich flavor, ready in seconds. Perfect for festivals, hikes, or chilling with the crew.</p>
-              </div>
-
-              <!-- Greenhouse Pre-rolls -->
-              <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-100 text-center">
-                <img src="https://i.postimg.cc/LsYrTxjJ/20251112_114110.jpg" alt="5x Greenhouse Pre-rolls" class="w-full h-40 product-img mb-3">
-                <p class="text-lg font-semibold">5x Greenhouse Pre-rolls</p>
-                <p class="price">R250</p>
-                <p class="text-xs italic text-gray-600 mb-2">Classic. Clean. Ready.</p>
-                <p class="product-desc">Clean, crisp, and consistent. Grown under glass for maximum potency and purity. Your go-to for reliable, no-fuss sessions.</p>
-              </div>
-            </div>
-            <div class="hidden md:block"></div>
-          </div>
-        </div>
-
-        <!-- EDIBLES -->
-        <div class="mb-12">
-          <h3 class="text-2xl font-bold mb-6 text-primary">Edibles</h3>
-          <div class="space-y-8">
-
-            <!-- GUMMY BEARS -->
-            <div class="bg-gradient-to-br from-red-50 to-rose-50 p-6 rounded-xl border border-red-100 text-center">
-              <img src="https://i.postimg.cc/pXsH2Gx5/IMG-20251103-144536.jpg" alt="Gummy Bears (10mg THC)" class="w-full h-48 product-img mb-4">
-              <p class="text-lg font-semibold">Gummy Bears (10mg THC)</p>
-              <p class="text-sm text-gray-700 mb-2">15x → R90 ‖ 30x → R150</p>
-              <p class="product-desc">Chewy, fruity, and perfectly dosed. 10mg THC per bear. Great for beginners or micro-dosing. Discreet and delicious.</p>
-            </div>
-
-            <!-- LEAF GUMMIES -->
-            <div class="bg-gradient-to-br from-orange-50 to-amber-50 p-6 rounded-xl border border-orange-100">
-              <div class="flex flex-col md:flex-row gap-6 items-center">
-                <div class="flex-1 text-center md:text-left">
-                  <p class="text-lg font-semibold">Leaf Gummies (50mg THC)</p>
-                  <p class="text-sm text-gray-700 mt-1 mb-2">2x → R80 ‖ 5x → R200</p>
-                  <p class="product-desc">Handcrafted, high-potency edibles. 50mg THC per leaf. Intense, long-lasting effects. <strong>For experienced users only.</strong> Not for newbies.</p>
-                </div>
-                <div class="flex-1">
-                  <img src="https://i.postimg.cc/L54dzLRQ/20251112-160834.jpg" alt="Leaf Gummies" class="w-full h-48 product-img">
-                  <p class="text-xs text-center text-gray-500 mt-2 italic">Handcrafted. 50mg THC per leaf.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ORDER CTA -->
-        <div class="text-center mt-10">
-          <p class="text-sm text-gray-600 mb-4">Members: DM to order</p>
-          <a href="https://instagram.com/GardenOfEdenZA" target="_blank" class="inline-block btn-gold text-lg">
-            DM @GardenOfEdenZA
-          </a>
+        <!-- RIGHT: HERO PRODUCT ROTATOR -->
+        <div class="hidden md:block bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border border-primary/10">
+          <h4 class="font-bold text-primary mb-4">Featured Drop</h4>
+          <img src="https://i.postimg.cc/rRCVR9G2/20251112-115445.jpg" alt="Tropical Skunk" class="w-full rounded-lg shadow-lg mb-3">
+          <p class="font-semibold">Tropical Skunk</p>
+          <p class="text-sm text-gray-600">Now in stock. Limited 10g packs.</p>
+          <a href="https://wa.me/27812345678" class="block mt-3 btn-gold text-center text-sm">DM to Order</a>
         </div>
       </div>
     </section>
 
-    <!-- JOIN -->
-    <section id="join" class="bg-white rounded-2xl shadow-xl p-10 mb-16 max-w-3xl mx-auto text-center">
+    <!-- JOIN + LEAF BG -->
+    <section id="join" class="bg-white rounded-2xl shadow-xl p-10 mb-16 max-w-3xl mx-auto text-center leaf-bg">
       <h2 class="text-4xl font-bold mb-6 text-primary section-title">Join The Garden</h2>
       <p class="text-lg text-gray-700 mb-8">Exclusive access. Member pricing. Private drops.</p>
       <button class="btn-gold text-lg mb-4" onclick="joinFree()">Join Free</button>
       <p class="text-sm text-gray-500">Premium Membership: R399/month – Coming Soon</p>
     </section>
+
+    <!-- FOOTER + PRODUCT STRIP -->
+    <div class="bg-primary/5 py-8 px-6 rounded-2xl mb-16 max-w-5xl mx-auto">
+      <p class="text-center font-medium text-primary mb-4">Top Sellers This Week</p>
+      <div class="grid grid-cols-3 gap-4 text-center">
+        <div>
+          <img src="https://i.postimg.cc/rRCVR9G2/20251112-115445.jpg" alt="" class="w-full h-20 product-img">
+          <p class="text-xs mt-1">Tropical Skunk</p>
+        </div>
+        <div>
+          <img src="https://i.postimg.cc/pXsH2Gx5/IMG-20251103-144536.jpg" alt="" class="w-full h-20 product-img">
+          <p class="text-xs mt-1">Gummy Bears</p>
+        </div>
+        <div>
+          <img src="https://i.postimg.cc/2LFkLxdb/20251112-114115.jpg" alt="" class="w-full h-20 product-img">
+          <p class="text-xs mt-1">Pre-rolls</p>
+        </div>
+      </div>
+    </div>
 
   </main>
 
@@ -327,13 +304,6 @@
     } else {
       document.body.style.overflow = 'hidden';
     }
-
-    // Cart
-    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
-    function updateCartCount() {
-      document.getElementById('cart-count').textContent = cart.length;
-    }
-    updateCartCount();
 
     function joinFree() {
       const email = prompt("Enter your email to join:");
