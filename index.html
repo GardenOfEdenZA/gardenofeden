@@ -1,189 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green High Society Club | Premium Cannabis Experience</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <style>
-        :root {
-            --primary: #2d6a4f;
-            --secondary: #e9c46a;
-            --accent: #1d3557;
-            --light: #f1faee;
-        }
-    </style>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>Green High Society Club | Premium Cannabis Experience</title>
+
+ <!-- FAVICON (Logo as favicon) -->
+ <link rel="icon" href="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/logo.png" type="image/png">
+
+ <!-- Open Graph (Social Preview with Logo) -->
+ <meta property="og:title" content="Green High Society Club" />
+ <meta property="og:description" content="Premium cannabis products for discerning enthusiasts. Members-only access." />
+ <meta property="og:image" content="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/logo.png" />
+ <meta property="og:url" content="https://yourdomain.vercel.app" />
+ <meta property="og:type" content="website" />
+
+ <!-- Tailwind CDN -->
+ <script src="https://cdn.tailwindcss.com"></script>
+ <script>
+ tailwind.config = {
+ theme: {
+ extend: {
+ colors: {
+ primary: '#2d6a4f',
+ secondary: '#e9c46a',
+ accent: '#1d3557',
+ light: '#f1faee',
+ },
+ },
+ },
+ };
+ </script>
+
+ <!-- Feather Icons -->
+ <script src="https://unpkg.com/feather-icons"></script>
+
+ <style>
+ :root {
+ --primary: #2d6a4f;
+ --secondary: #e9c46a;
+ --accent: #1d3557;
+ --light: #f1faee;
+ }
+ .hero {
+ background: linear-gradient(to right, #166534, #1e40af);
+ }
+ #age-verification {
+ position: fixed;
+ inset: 0;
+ background: rgba(0,0,0,0.9);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ z-index: 9999;
+ }
+ #age-verification-content {
+ background: white;
+ border-radius: 1rem;
+ padding: 2rem;
+ max-width: 90%;
+ text-align: center;
+ }
+ .logo-img {
+ height: 40px;
+ width: auto;
+ object-fit: contain;
+ }
+ .hero-logo {
+ height: 80px;
+ margin-bottom: 1.5rem;
+ }
+ .footer-logo {
+ height: 60px;
+ margin-bottom: 1rem;
+ }
+ </style>
 </head>
+
 <body class="bg-gray-50">
-    <custom-navbar></custom-navbar>
-    
-    <main class="container mx-auto px-4 py-8">
-        <!-- Hero Section -->
-        <section class="hero bg-gradient-to-r from-green-700 to-green-900 text-white rounded-xl p-8 md:p-12 mb-12">
-            <div class="max-w-2xl mx-auto text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Elevate Your Experience</h1>
-                <p class="text-xl mb-8">Premium cannabis products for discerning enthusiasts. Members-only access to the finest selection.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#join" class="bg-amber-400 hover:bg-amber-300 text-gray-900 font-bold py-3 px-6 rounded-lg transition duration-300">Join Now</a>
-                    <a href="#products" class="bg-white hover:bg-gray-100 text-green-800 font-bold py-3 px-6 rounded-lg transition duration-300">View Products</a>
-                </div>
-                <div class="mt-8 flex justify-center gap-4">
-                    <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/images/IMG_20251030_112331.jpg" alt="Premium Product" class="h-16 w-16 object-cover rounded-full border-2 border-amber-400">
-                    <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/images/IMG_20251103_144720.jpg" alt="Premium Product" class="h-16 w-16 object-cover rounded-full border-2 border-amber-400">
-                    <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/images/wuea08.jpg" alt="Premium Product" class="h-16 w-16 object-cover rounded-full border-2 border-amber-400">
-                </div>
-</div>
-        </section>
 
-        <!-- Age Verification Modal -->
-        <div id="age-verification" class="hidden">
-            <div id="age-verification-content" class="rounded-lg p-8 max-w-md text-center">
-                <h2 class="text-2xl font-bold mb-4">Age Verification</h2>
-                <p class="mb-6">You must be 18+ years old to access this website. By entering, you confirm you are of legal age.</p>
-                <div class="flex gap-4 justify-center">
-                    <button id="verify-age" class="bg-amber-400 hover:bg-amber-300 text-gray-900 font-bold py-2 px-6 rounded-lg transition">I'm 18+</button>
-                    <button id="exit-site" class="bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-6 rounded-lg transition">Exit</button>
-                </div>
-            </div>
-        </div>
-<!-- Products Section -->
-        <section id="products" class="mb-16">
-            <h2 class="text-3xl font-bold text-center mb-12">Our Premium Selection</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Product Card 1 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105">
-                    <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/images/PicsArt_10-14-02.12.19.jpg" alt="Premium Flower" class="w-full h-64 object-cover">
-<div class="p-6">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-xl font-bold">Durban Poison</h3>
-                            <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">Sativa</span>
-                        </div>
-                        <div class="mt-2 space-y-1">
-                            <p class="text-gray-600">10g | 22% THC - <span class="font-bold text-green-700">R120</span></p>
-                            <p class="text-gray-600">40g | 22% THC - <span class="font-bold text-green-700">R450</span> <span class="text-xs text-amber-600">(Save R30)</span></p>
-                        </div>
-                        <div class="mt-4 flex justify-between items-center">
-                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
+ <!-- AGE VERIFICATION MODAL -->
+ <div id="age-verification">
+ <div id="age-verification-content">
+ <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/logo.png" alt="Green High Society Logo" class="h-16 mx-auto mb-4">
+ <h2 class="text-2xl font-bold mb-4 text-primary">Age Verification</h2>
+ <p class="mb-6 text-gray-700">You must be <strong>18+</strong> years old to access this website.<br>By entering, you confirm you are of legal age.</p>
+ <div class="flex gap-4 justify-center">
+ <button id="verify-age" class="bg-secondary hover:bg-amber-300 text-accent font-bold py-2 px-6 rounded-lg transition">I'm 18+</button>
+ <button id="exit-site" class="bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-6 rounded-lg transition">Exit</button>
+ </div>
+ </div>
+ </div>
 
-                <!-- Product Card 2 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105">
-                    <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/images/-qlw3gd.jpg" alt="Gummy Bears" class="w-full h-64 object-cover">
-<div class="p-6">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-xl font-bold">Cannabis Gummy Bears</h3>
-                            <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded">Edible</span>
-                        </div>
-                        <p class="text-gray-600 mt-2">20 pieces | 10mg THC each</p>
-                        <div class="mt-4 flex justify-between items-center">
-                            <span class="text-2xl font-bold text-green-700">R250</span>
-                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
+ <!-- NAVBAR -->
+ <nav class="bg-primary text-white shadow-lg sticky top-0 z-50">
+ <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+ <a href="#" class="flex items-center gap-2">
+ <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/logo.png" alt="Green High Society Logo" class="logo-img">
+ <span class="text-xl font-bold hidden sm:inline">Green High Society</span>
+ </a>
+ <div class="flex items-center gap-6">
+ <a href="#products" class="hover:text-secondary transition text-sm md:text-base">Products</a>
+ <a href="#join" class="hover:text-secondary transition text-sm md:text-base">Join</a>
+ <button id="cart-btn" class="flex items-center gap-1 hover:text-secondary text-sm md:text-base">
+ Cart <span id="cart-count" class="text-xs bg-secondary text-accent rounded-full w-5 h-5 flex items-center justify-center">0</span>
+ </button>
+ </div>
+ </div>
+ </nav>
 
-                <!-- Product Card 3 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105">
-                    <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/images/PicsArt_10-10-05.01.30.png" alt="Leaf Gummies" class="w-full h-64 object-cover">
-<div class="p-6">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-xl font-bold">Leaf Shaped Gummies</h3>
-                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">Edible</span>
-                        </div>
-                        <p class="text-gray-600 mt-2">15 pieces | 15mg THC each</p>
-                        <div class="mt-4 flex justify-between items-center">
-                            <span class="text-2xl font-bold text-green-700">R300</span>
-                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
+ <main class="container mx-auto px-4 py-8">
 
-                <!-- Product Card 4 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105">
-                    <img src="https://static.photos/nature/640x360/53" alt="Pre-rolls" class="w-full h-64 object-cover">
-                    <div class="p-6">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-xl font-bold">Outdoor Pre-rolls</h3>
-                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Hybrid</span>
-                        </div>
-                        <p class="text-gray-600 mt-2">10 joints | 0.5g each</p>
-                        <div class="mt-4 flex justify-between items-center">
-                            <span class="text-2xl font-bold text-green-700">R300</span>
-                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition">Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-</div>
-        </section>
+ <!-- HERO -->
+ <section class="hero text-white rounded-xl p-8 md:p-12 mb-12 text-center">
+ <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/logo.png" alt="Green High Society Logo" class="hero-logo mx-auto">
+ <h1 class="text-4xl md:text-5xl font-bold mb-4">Elevate Your Experience</h1>
+ <p class="text-xl mb-8 max-w-2xl mx-auto">Premium cannabis products for discerning enthusiasts. Members-only access to the finest selection.</p>
+ <div class="flex flex-col sm:flex-row gap-4 justify-center">
+ <a href="#join" class="bg-secondary hover:bg-amber-300 text-accent font-bold py-3 px-6 rounded-lg transition">Join Now</a>
+ <a href="#products" class="bg-white hover:bg-gray-100 text-primary font-bold py-3 px-6 rounded-lg transition">View Products</a>
+ </div>
+ <div class="mt-8 flex justify-center gap-4">
+ <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/images/IMG_20251030_112331.jpg" alt="Premium Product" class="h-16 w-16 object-cover rounded-full border-2 border-secondary">
+ <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/images/IMG_20251103_144720.jpg" alt="Premium Product" class="h-16 w-16 object-cover rounded-full border-2 border-secondary">
+ <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/images/wuea08.jpg" alt="Premium Product" class="h-16 w-16 object-cover rounded-full border-2 border-secondary">
+ </div>
+ </section>
 
-        <!-- Membership Section -->
-        <section id="join" class="bg-white rounded-xl shadow-lg p-8 mb-16">
-            <div class="max-w-3xl mx-auto text-center">
-                <h2 class="text-3xl font-bold mb-6">Join Our Exclusive Club</h2>
-                <p class="text-gray-600 mb-8">Get access to member-only products, special pricing, and exclusive events.</p>
-                
-                <div class="grid md:grid-cols-2 gap-8 mb-8">
-                    <div class="bg-green-50 p-6 rounded-lg">
-                        <h3 class="text-xl font-bold mb-4">Basic Membership</h3>
-                        <p class="text-3xl font-bold text-green-700 mb-4">Free</p>
-                        <ul class="space-y-2 text-left">
-                            <li class="flex items-center">
-                                <i data-feather="check" class="text-green-500 mr-2"></i>
-                                Member pricing
-                            </li>
-                            <li class="flex items-center">
-                                <i data-feather="check" class="text-green-500 mr-2"></i>
-                                Product alerts
-                            </li>
-                            <li class="flex items-center">
-                                <i data-feather="check" class="text-green-500 mr-2"></i>
-                                Newsletter
-                            </li>
-                        </ul>
-                        <button class="mt-6 w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg transition">Sign Up</button>
-                    </div>
-                    
-                    <div class="bg-amber-50 p-6 rounded-lg">
-                        <h3 class="text-xl font-bold mb-4">Premium Membership</h3>
-                        <p class="text-3xl font-bold text-amber-700 mb-4">R399<span class="text-lg">/month</span></p>
-                        <ul class="space-y-2 text-left">
-                            <li class="flex items-center">
-                                <i data-feather="check" class="text-amber-500 mr-2"></i>
-                                All Basic benefits
-                            </li>
-                            <li class="flex items-center">
-                                <i data-feather="check" class="text-amber-500 mr-2"></i>
-                                20% discount
-                            </li>
-                            <li class="flex items-center">
-                                <i data-feather="check" class="text-amber-500 mr-2"></i>
-                                Free delivery
-                            </li>
-                            <li class="flex items-center">
-                                <i data-feather="check" class="text-amber-500 mr-2"></i>
-                                Monthly mystery box
-                            </li>
-                        </ul>
-                        <button class="mt-6 w-full bg-amber-500 hover:bg-amber-400 text-white py-2 px-4 rounded-lg transition">Coming Soon</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+ <!-- PRODUCTS -->
+ <section id="products" class="mb-16">
+ <h2 class="text-3xl font-bold text-center mb-12 text-primary">Our Premium Selection</h2>
+ <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-    <custom-footer></custom-footer>
+ <!-- Product 1 -->
+ <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105">
+ <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/images/PicsArt_10-14-02.12.19.jpg" alt="Durban Poison" class="w-full h-64 object-cover">
+ <div class="p-6">
+ <div class="flex justify-between items-start mb-2">
+ <h3 class="text-xl font-bold">Durban Poison</h3>
+ <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">Sativa</span>
+ </div>
+ <p class="text-gray-600">10g | 22% THC - <strong class="text-primary">R120</strong></p>
+ <p class="text-gray-600">40g | 22% THC - <strong class="text-primary">R450</strong> <span class="text-xs text-secondary">(Save R30)</span></p>
+ <button class="mt-4 w-full bg-primary hover:bg-green-700 text-white py-2 rounded-lg transition" 
+ onclick="addToCart('Durban Poison 10g', 120)">Add 10g</button>
+ <button class="mt-2 w-full bg-primary hover:bg-green-700 text-white py-2 rounded-lg transition" 
+ onclick="addToCart('Durban Poison 40g', 450)">Add 40g</button>
+ </div>
+ </div>
 
-    <script src="components/navbar.js"></script>
-    <script src="components/footer.js"></script>
-    <script src="script.js"></script>
-    <script>
-        feather.replace();
-    </script>
-<script src="https://huggingface.co/deepsite/deepsite-badge.js"></script>
+ <!-- Product 2 -->
+ <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105">
+ <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/images/-qlw3gd.jpg" alt="Gummy Bears" class="w-full h-64 object-cover">
+ <div class="p-6">
+ <div class="flex justify-between items-start mb-2">
+ <h3 class="text-xl font-bold">Cannabis Gummy Bears</h3>
+ <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded">Edible</span>
+ </div>
+ <p class="text-gray-600">20 pcs | 10mg THC each</p>
+ <div class="mt-4 flex justify-between items-center">
+ <span class="text-2xl font-bold text-primary">R250</span>
+ <button class="bg-primary hover:bg-green-700 text-white px-4 py-2 rounded-lg transition" 
+ onclick="addToCart('Gummy Bears', 250)">Add to Cart</button>
+ </div>
+ </div>
+ </div>
+
+ <!-- Product 3 -->
+ <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105">
+ <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/images/PicsArt_10-10-05.01.30.png" alt="Leaf Gummies" class="w-full h-64 object-cover">
+ <div class="p-6">
+ <div class="flex justify-between items-start mb-2">
+ <h3 class="text-xl font-bold">Leaf Shaped Gummies</h3>
+ <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">Edible</span>
+ </div>
+ <p class="text-gray-600">15 pcs | 15mg THC each</p>
+ <div class="mt-4 flex justify-between items-center">
+ <span class="text-2xl font-bold text-primary">R300</span>
+ <button class="bg-primary hover:bg-green-700 text-white px-4 py-2 rounded-lg transition" 
+ onclick="addToCart('Leaf Gummies', 300)">Add to Cart</button>
+ </div>
+ </div>
+ </div>
+
+ <!-- Product 4 -->
+ <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105">
+ <img src="https://picsum.photos/640/360?random=53" alt="Pre-rolls" class="w-full h-64 object-cover">
+ <div class="p-6">
+ <div class="flex justify-between items-start mb-2">
+ <h3 class="text-xl font-bold">Outdoor Pre-rolls</h3>
+ <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Hybrid</span>
+ </div>
+ <p class="text-gray-600">10 joints | 0.5g each</p>
+ <div class="mt-4 flex justify-between items-center">
+ <span class="text-2xl font-bold text-primary">R300</span>
+ <button class="bg-primary hover:bg-green-700 text-white px-4 py-2 rounded-lg transition" 
+ onclick="addToCart('Pre-rolls', 300)">Add to Cart</button>
+ </div>
+ </div>
+ </div>
+
+ </div>
+ </section>
+
+ <!-- MEMBERSHIP -->
+ <section id="join" class="bg-white rounded-xl shadow-lg p-8 mb-16">
+ <div class="max-w-3xl mx-auto text-center">
+ <h2 class="text-3xl font-bold mb-6 text-primary">Join Our Exclusive Club</h2>
+ <p class="text-gray-600 mb-8">Get access to member-only products, special pricing, and exclusive drops.</p>
+
+ <div class="grid md:grid-cols-2 gap-8 mb-8">
+ <div class="bg-green-50 p-6 rounded-lg">
+ <h3 class="text-xl font-bold mb-4">Basic Membership</h3>
+ <p class="text-3xl font-bold text-primary mb-4">Free</p>
+ <ul class="space-y-2 text-left">
+ <li class="flex items-center"><i data-feather="check" class="text-green-500 mr-2 w-5 h-5"></i> Member pricing</li>
+ <li class="flex items-center"><i data-feather="check" class="text-green-500 mr-2 w-5 h-5"></i> Product alerts</li>
+ <li class="flex items-center"><i data-feather="check" class="text-green-500 mr-2 w-5 h-5"></i> Newsletter</li>
+ </ul>
+ <button class="mt-6 w-full bg-primary hover:bg-green-700 text-white py-2 px-4 rounded-lg transition" onclick="joinFree()">Sign Up</button>
+ </div>
+
+ <div class="bg-amber-50 p-6 rounded-lg">
+ <h3 class="text-xl font-bold mb-4">Premium Membership</h3>
+ <p class="text-3xl font-bold text-secondary mb-4">R399<span class="text-lg">/month</span></p>
+ <ul class="space-y-2 text-left">
+ <li class="flex items-center"><i data-feather="check" class="text-amber-500 mr-2 w-5 h-5"></i> All Basic benefits</li>
+ <li class="flex items-center"><i data-feather="check" class="text-amber-500 mr-2 w-5 h-5"></i> 20% discount</li>
+ <li class="flex items-center"><i data-feather="check" class="text-amber-500 mr-2 w-5 h-5"></i> Free delivery</li>
+ <li class="flex items-center"><i data-feather="check" class="text-amber-500 mr-2 w-5 h-5"></i> Monthly mystery box</li>
+ </ul>
+ <button class="mt-6 w-full bg-secondary hover:bg-amber-400 text-white py-2 px-4 rounded-lg transition" disabled>Coming Soon</button>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ </main>
+
+ <!-- FOOTER -->
+ <footer class="bg-accent text-light py-10">
+ <div class="container mx-auto px-4 text-center">
+ <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/logo.png" alt="Green High Society Logo" class="footer-logo mx-auto">
+ <p class="text-lg font-semibold">Green High Society Club</p>
+ <p>&copy; <span id="year"></span>. All rights reserved.</p>
+ <p class="text-sm mt-2">For adults 18+ only. Private use only. Know your local laws.</p>
+ </div>
+ </footer>
+
+ <!-- CART & AGE LOGIC -->
+ <script>
+ // Year
+ document.getElementById('year').textContent = new Date().getFullYear();
+
+ // Age Gate
+ document.getElementById('verify-age').onclick = () => {
+ const birthYear = prompt("Enter your birth year (e.g. 1995):");
+ if (birthYear && new Date().getFullYear() - parseInt(birthYear) >= 18) {
+ document.getElementById('age-verification').remove();
+ localStorage.setItem('ageVerified', 'true');
+ } else {
+ alert("You must be 18+ to enter.");
+ window.location.href = "https://google.com";
+ }
+ };
+ document.getElementById('exit-site').onclick = () => window.location.href = "https://google.com";
+
+ if (localStorage.getItem('ageVerified') === 'true') {
+ document.getElementById('age-verification').remove();
+ } else {
+ document.body.style.overflow = 'hidden';
+ }
+
+ // Cart
+ let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+ updateCartCount();
+
+ function addToCart(name, price) {
+ cart.push({ name, price });
+ localStorage.setItem('cart', JSON.stringify(cart));
+ updateCartCount();
+ alert(`${name} added to cart!`);
+ }
+
+ function updateCartCount() {
+ document.getElementById('cart-count').textContent = cart.length;
+ }
+
+ function joinFree() {
+ const email = prompt("Enter your email to join (free):");
+ if (email && email.includes('@')) {
+ alert("Welcome to the club! Check your email.");
+ }
+ }
+
+ // Feather icons
+ feather.replace();
+ </script>
 </body>
 </html>
