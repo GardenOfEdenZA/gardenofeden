@@ -90,6 +90,12 @@
     .product-img:hover {
       transform: scale(1.02);
     }
+    .product-desc {
+      font-size: 0.875rem;
+      color: #555;
+      margin-top: 0.5rem;
+      line-height: 1.5;
+    }
 
     /* WHATSAPP FLOATING BUTTON */
     .whatsapp-float {
@@ -156,7 +162,7 @@
 
   <main class="container mx-auto px-6 py-12">
 
-    <!-- HERO — CLEAN TRANSPARENT LOGO (NO BLACK SQUARE) -->
+    <!-- HERO -->
     <section class="hero rounded-2xl p-10 md:p-16 mb-16 text-center">
       <img src="https://i.postimg.cc/3xR5b3kM/garden-of-eden-logo-transparent.png" alt="The Garden Of Eden Logo" class="hero-logo mb-6">
       <h1 class="text-5xl md:text-6xl font-bold mb-3 section-title">The Garden Of Eden</h1>
@@ -175,17 +181,23 @@
         <!-- STRAINS -->
         <div class="mb-12 pb-8 border-b border-gray-200">
           <h3 class="text-2xl font-bold mb-6 text-primary">Strains: Tropical Skunk & Alpha Express</h3>
-          <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div class="grid md:grid-cols-2 gap-8 items-start">
+
+            <!-- Tropical Skunk -->
             <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-xl border border-green-100 text-center">
               <img src="https://i.postimg.cc/rRCVR9G2/20251112-115445.jpg" alt="Tropical Skunk" class="w-full h-48 product-img mb-4">
               <p class="text-lg font-semibold text-gray-800">10 grams</p>
               <p class="price">R120</p>
+              <p class="product-desc">Sun-kissed sativa-dominant hybrid. Bursting with tropical pineapple and skunky earth notes. Uplifting, creative, and perfect for daytime vibes.</p>
             </div>
+
+            <!-- Alpha Express -->
             <div class="bg-gradient-to-br from-amber-50 to-yellow-50 p-6 rounded-xl border border-amber-100 text-center">
               <img src="https://i.postimg.cc/D4dv4cQS/20251112-115355.jpg" alt="Alpha Express" class="w-full h-48 product-img mb-4">
               <p class="text-lg font-semibold text-gray-800">40 grams</p>
               <p class="price">R450</p>
-              <p class="text-sm text-amber-700 font-medium">(Save R30)</p>
+              <p class="text-sm text-amber-700 font-medium mb-1">(Save R30)</p>
+              <p class="product-desc">Premium indoor-grown indica. Dense buds with sweet citrus and pine aroma. Deep relaxation, pain relief, and sleep support.</p>
             </div>
           </div>
         </div>
@@ -193,19 +205,25 @@
         <!-- PRE-ROLLED JOINTS -->
         <div class="mb-12 pb-8 border-b border-gray-200">
           <h3 class="text-2xl font-bold mb-6 text-primary">Pre-rolled Joints</h3>
-          <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div class="grid md:grid-cols-2 gap-8 items-start">
             <div class="space-y-6">
+
+              <!-- Stoner Days -->
               <div class="bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-xl border border-blue-100 text-center">
                 <img src="https://i.postimg.cc/2LFkLxdb/20251112-114115.jpg" alt="Stoner Days" class="w-full h-40 product-img mb-3">
                 <p class="text-lg font-semibold">10x Outdoor Pre-rolls</p>
                 <p class="price">R300</p>
-                <p class="text-xs italic text-gray-600">Stoner Days™ – Premium, hand-rolled</p>
+                <p class="text-xs italic text-gray-600 mb-2">Stoner Days™ – Premium, hand-rolled</p>
+                <p class="product-desc">Hand-rolled outdoor classics. Smooth burn, rich flavor, ready in seconds. Perfect for festivals, hikes, or chilling with the crew.</p>
               </div>
+
+              <!-- Greenhouse Pre-rolls -->
               <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-100 text-center">
                 <img src="https://i.postimg.cc/LsYrTxjJ/20251112_114110.jpg" alt="5x Greenhouse Pre-rolls" class="w-full h-40 product-img mb-3">
                 <p class="text-lg font-semibold">5x Greenhouse Pre-rolls</p>
                 <p class="price">R250</p>
-                <p class="text-xs italic text-gray-600">Classic. Clean. Ready.</p>
+                <p class="text-xs italic text-gray-600 mb-2">Classic. Clean. Ready.</p>
+                <p class="product-desc">Clean, crisp, and consistent. Grown under glass for maximum potency and purity. Your go-to for reliable, no-fuss sessions.</p>
               </div>
             </div>
             <div class="hidden md:block"></div>
@@ -221,18 +239,20 @@
             <div class="bg-gradient-to-br from-red-50 to-rose-50 p-6 rounded-xl border border-red-100 text-center">
               <img src="https://i.postimg.cc/pXsH2Gx5/IMG-20251103-144536.jpg" alt="Gummy Bears (10mg THC)" class="w-full h-48 product-img mb-4">
               <p class="text-lg font-semibold">Gummy Bears (10mg THC)</p>
-              <p class="text-sm text-gray-700">15x → R90 ‖ 30x → R150</p>
+              <p class="text-sm text-gray-700 mb-2">15x → R90 ‖ 30x → R150</p>
+              <p class="product-desc">Chewy, fruity, and perfectly dosed. 10mg THC per bear. Great for beginners or micro-dosing. Discreet and delicious.</p>
             </div>
 
             <!-- LEAF GUMMIES -->
             <div class="bg-gradient-to-br from-orange-50 to-amber-50 p-6 rounded-xl border border-orange-100">
               <div class="flex flex-col md:flex-row gap-6 items-center">
-                <div class="flex-1">
+                <div class="flex-1 text-center md:text-left">
                   <p class="text-lg font-semibold">Leaf Gummies (50mg THC)</p>
-                  <p class="text-sm text-gray-700 mt-1">2x → R80 ‖ 5x → R200</p>
+                  <p class="text-sm text-gray-700 mt-1 mb-2">2x → R80 ‖ 5x → R200</p>
+                  <p class="product-desc">Handcrafted, high-potency edibles. 50mg THC per leaf. Intense, long-lasting effects. <strong>For experienced users only.</strong> Not for newbies.</p>
                 </div>
                 <div class="flex-1">
-                  <img13 src="https://i.postimg.cc/L54dzLRQ/20251112-160834.jpg" alt="Leaf Gummies" class="w-full h-48 product-img">
+                  <img src="https://i.postimg.cc/L54dzLRQ/20251112-160834.jpg" alt="Leaf Gummies" class="w-full h-48 product-img">
                   <p class="text-xs text-center text-gray-500 mt-2 italic">Handcrafted. 50mg THC per leaf.</p>
                 </div>
               </div>
