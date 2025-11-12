@@ -6,12 +6,12 @@
   <title>The Garden Of Eden Cannabis Club</title>
 
   <!-- FAVICON & LOGO -->
-  <link rel="icon" href="https://cdn.statically.io/img/i.imgur.com/w=800/https://i.imgur.com/3XvM7iK.png" type="image/png">
+  <link rel="icon" href="https://i.postimg.cc/3XvM7iK/logo.png" type="image/png">
 
   <!-- Open Graph -->
   <meta property="og:title" content="The Garden Of Eden Cannabis Club" />
   <meta property="og:description" content="Where Bliss Meets Bud. Premium THC cannabis. 18+ only." />
-  <meta property="og:image" content="https://cdn.statically.io/img/i.imgur.com/w=800/https://i.imgur.com/3XvM7iK.png" />
+  <meta property="og:image" content="https://i.postimg.cc/3XvM7iK/logo.png" />
   <meta property="og:url" content="https://garden-of-eden-cannabis-club.vercel.app" />
   <meta property="og:type" content="website" />
 
@@ -75,4 +75,41 @@
     .btn-gold {
       background: linear-gradient(135deg, #d4af37, #b8961e);
       color: #1a1a1a; font-weight: 600; border-radius: 0.75rem;
-      padding: 0.75
+      padding: 0.75rem 1.75rem; transition: all 0.3s ease;
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(212,175,55,0.4); }
+    .price { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+    .section-title { font-family: 'Playfair Display', serif; font-weight: 700; }
+    .product-img {
+      border-radius: 1rem;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+    .product-img:hover {
+      transform: scale(1.02);
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50">
+
+  <!-- AGE VERIFICATION -->
+  <div id="age-verification">
+    <div id="age-verification-content">
+      <img src="https://i.postimg.cc/3XvM7iK/logo.png" alt="Logo" class="h-24 mx-auto mb-6">
+      <h2 class="text-3xl font-bold mb-3 text-primary">Members Only</h2>
+      <p class="mb-6 text-gray-700">You must be <strong>18 or older</strong> to enter.</p>
+      <div class="flex gap-4 justify-center">
+        <button id="verify-age" class="btn-gold text-lg">Enter Club</button>
+        <button id="exit-site" class="bg-gray-700 hover:bg-gray-800 text-white font-medium py-3 px-6 rounded-lg">Exit</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="bg-primary text-white shadow-xl sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#" class="flex items-center gap-3">
+        <img src="https://i.postimg.cc/3XvM7iK/logo.png" alt="Logo" class="logo-img">
+        <span class="text-xl font-bold hidden md:inline">The Garden Of Eden</span>
+      </a
