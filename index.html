@@ -1,376 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Core Meta -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#2d6a4f" />
-  <title>Garden of Eden ZA | Premium THC Cannabis Club</title>
-  <meta name="description" content="South Africa’s exclusive THC cannabis members club. Premium flower, vapes, concentrates & accessories. 18+ only." />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Garden of Eden ZA – Premium THC Cannabis Club" />
-  <meta property="og:description" content="Members-only access to top-tier THC flower, vapes, and concentrates." />
-  <meta property="og:image" content="https://yourbrand.vercel.app/og-thc.jpg" />
-  <meta property="og:url" content="https://yourbrand.vercel.app" />
-  <meta property="og:type" content="website" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="https://api.dicebear.com/7.x/shapes/svg?seed=GardenOfEdenZA" />
-
-  <!-- Preconnects -->
-  <link rel="preconnect" href="https://cdn.snipcart.com" />
-  <link rel="preconnect" href="https://app.snipcart.com" />
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-
-  <!-- Snipcart CSS -->
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
-
-  <style>
-    :root {
-      --green: #2d6a4f;
-      --light-green: #95d5b2;
-      --cream: #f1faee;
-      --dark: #1d3557;
-      --gold: #e9c46a;
-      --radius: 12px;
-      --transition: all 0.3s ease;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--cream);
-      color: var(--dark);
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-    h1, h2, h3 { font-family: 'Playfair Display', serif; }
-
-    /* Skip Link */
-    .skip-link {
-      position: absolute; top: -40px; left: 6px; background: var(--dark); color: #fff; padding: 8px; z-index: 10000;
-    }
-    .skip-link:focus { top: 6px; }
-
-    /* Age Gate (18+) */
-    #age-gate {
-      position: fixed; inset: 0; background: rgba(29,53,87,0.98); color: #fff;
-      display: flex; flex-direction: column; justify-content: center; align-items: center;
-      text-align: center; z-index: 9999; padding: 2rem; font-size: 1.1rem;
-    }
-    #age-gate h1 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--light-green); }
-    #age-gate form { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem; width: 100%; max-width: 320px; }
-    #age-gate input { padding: 0.8rem; font-size: 1rem; border-radius: 8px; border: none; }
-    #age-gate button {
-      padding: 1rem 2rem; background: var(--green); color: #fff; border: none;
-      border-radius: 8px; font-weight: 600; cursor: pointer; transition: var(--transition);
-    }
-    #age-gate button:hover { background: var(--gold); color: var(--dark); }
-
-    /* Header */
-    header {
-      background: var(--green); color: #fff; padding: 1rem 0; position: sticky; top: 0; z-index: 100;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    nav {
-      max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 0 1rem;
-    }
-    .logo { font-size: 1.8rem; font-weight: 900; letter-spacing: 1px; }
-    .logo span { color: var(--gold); }
-    .nav-links { display: flex; gap: 1.5rem; }
-    .nav-links a { color: #fff; text-decoration: none; font-weight: 600; }
-    .nav-links a:hover { color: var(--gold); }
-    .cart-btn { background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
-
-    /* Hero */
-    .hero {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1628771065518-0d82f1938462?q=80&w=1600') center/cover;
-      color: #fff; text-align: center; padding: 7rem 1rem;
-    }
-    .hero h1 { font-size: 3.2rem; margin-bottom: 1rem; }
-    .hero p { font-size: 1.3rem; max-width: 700px; margin: 0 auto 2rem; }
-    .cta-join, .cta-shop {
-      padding: 1rem 2.5rem; border: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem;
-      cursor: pointer; transition: var(--transition); margin: 0.5rem;
-    }
-    .cta-join { background: var(--gold); color: var(--dark); }
-    .cta-join:hover { background: var(--light-green); }
-    .cta-shop { background: #fff; color: var(--green); }
-    .cta-shop:hover { background: var(--light-green); color: #fff; }
-
-    /* Club Intro */
-    .club-intro {
-      max-width: 1200px; margin: 4rem auto; padding: 0 1rem; text-align: center;
-    }
-    .club-intro h2 { font-size: 2.5rem; color: var(--green); margin-bottom: 1.5rem; }
-    .tiers {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 3rem;
-    }
-    .tier {
-      background: #fff; border-radius: var(--radius); padding: 2rem; width: 100%; max-width: 320px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.08); text-align: center;
-    }
-    .tier h3 { color: var(--green); margin-bottom: 1rem; }
-    .tier .price { font-size: 1.8rem; font-weight: 700; color: var(--gold); }
-    .tier ul { list-style: none; margin: 1rem 0; text-align: left; }
-    .tier li { margin: 0.5rem 0; }
-    .tier .btn { background: var(--green); color: #fff; padding: 0.8rem 1.5rem; border-radius: 6px; margin-top: 1rem; }
-
-    /* Shop Section */
-    .shop {
-      background: #f8f9fa; padding: 4rem 1rem;
-    }
-    .shop h2 { text-align: center; margin-bottom: 2.5rem; color: var(--green); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: auto; }
-    .card { background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: var(--transition); }
-    .card:hover { transform: translateY(-8px); }
-    .card img { width: 100%; height: 220px; object-fit: cover; loading: lazy; }
-    .card-body { padding: 1.5rem; text-align: center; }
-    .member-badge { background: var(--gold); color: var(--dark); font-size: 0.8rem; padding: 0.3rem 0.8rem; border-radius: 20px; display: inline-block; margin-bottom: 0.5rem; }
-
-    /* Membership Form */
-    .membership {
-      max-width: 600px; margin: 4rem auto; padding: 2rem; background: #fff; border-radius: var(--radius); box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    .membership input, .membership button {
-      width: 100%; padding: 1rem; margin: 0.5rem 0; border-radius: 8px; font-size: 1rem;
-    }
-    .membership input { border: 1px solid #ccc; }
-    .membership button { background: var(--green); color: #fff; border: none; font-weight: 600; cursor: pointer; }
-
-    /* Footer */
-    footer {
-      background: var(--dark); color: #ddd; text-align: center; padding: 3rem 1rem; margin-top: auto;
-    }
-    footer a { color: var(--light-green); text-decoration: none; margin: 0 0.5rem; }
-    .compliance { font-size: 0.85rem; margin-top: 1.5rem; color: #aaa; }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.5rem; }
-      .nav-links { flex-direction: column; gap: 0.5rem; }
-      .tiers { flex-direction: column; align-items: center; }
-    }
-
-    /* Cookie Banner */
-    #cookie-banner {
-      position: fixed; bottom: 0; left: 0; right: 0; background: var(--dark); color: #fff;
-      padding: 1rem; text-align: center; font-size: 0.9rem; z-index: 999; display: none;
-    }
-    #cookie-banner.show { display: block; }
-    #cookie-banner button {
-      background: var(--gold); color: var(--dark); border: none; padding: 0.5rem 1rem;
-      margin-left: 1rem; border-radius: 6px; cursor: pointer;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green High Society Club | Premium Cannabis Experience</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        :root {
+            --primary: #2d6a4f;
+            --secondary: #e9c46a;
+            --accent: #1d3557;
+            --light: #f1faee;
+        }
+    </style>
 </head>
+<body class="bg-gray-50">
+    <custom-navbar></custom-navbar>
+    
+    <main class="container mx-auto px-4 py-8">
+        <!-- Hero Section -->
+        <section class="hero bg-gradient-to-r from-green-700 to-green-900 text-white rounded-xl p-8 md:p-12 mb-12">
+            <div class="max-w-2xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Elevate Your Experience</h1>
+                <p class="text-xl mb-8">Premium cannabis products for discerning enthusiasts. Members-only access to the finest selection.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#join" class="bg-amber-400 hover:bg-amber-300 text-gray-900 font-bold py-3 px-6 rounded-lg transition duration-300">Join Now</a>
+                    <a href="#products" class="bg-white hover:bg-gray-100 text-green-800 font-bold py-3 px-6 rounded-lg transition duration-300">View Products</a>
+                </div>
+                <div class="mt-8 flex justify-center gap-4">
+                    <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/images/IMG_20251030_112331.jpg" alt="Premium Product" class="h-16 w-16 object-cover rounded-full border-2 border-amber-400">
+                    <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/images/IMG_20251103_144720.jpg" alt="Premium Product" class="h-16 w-16 object-cover rounded-full border-2 border-amber-400">
+                    <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/images/wuea08.jpg" alt="Premium Product" class="h-16 w-16 object-cover rounded-full border-2 border-amber-400">
+                </div>
+</div>
+        </section>
 
-<body lang="en">
-  <a href="#main" class="skip-link">Skip to main content</a>
-
-  <!-- AGE GATE (18+) -->
-  <div id="age-gate" aria-hidden="false">
-    <h1>Garden of Eden ZA</h1>
-    <p>You must be <strong>18 or older</strong> to enter.<br>
-       Premium THC cannabis members club – South Africa.</p>
-    <form id="age-form" onsubmit="verifyAge(event)">
-      <input type="number" id="birth-year" placeholder="Birth year (e.g. 2000)" min="1900" max="2010" required aria-label="Birth year" />
-      <button type="submit">Enter Club</button>
-    </form>
-  </div>
-
-  <!-- MAIN -->
-  <div id="main" hidden>
-    <!-- HEADER -->
-    <header>
-      <nav>
-        <div class="logo">Garden of <span>Eden</span> ZA</div>
-        <div class="nav-links">
-          <a href="#club">Club</a>
-          <a href="#shop">Shop</a>
-          <a href="#join">Join</a>
+        <!-- Age Verification Modal -->
+        <div id="age-verification" class="hidden">
+            <div id="age-verification-content" class="rounded-lg p-8 max-w-md text-center">
+                <h2 class="text-2xl font-bold mb-4">Age Verification</h2>
+                <p class="mb-6">You must be 18+ years old to access this website. By entering, you confirm you are of legal age.</p>
+                <div class="flex gap-4 justify-center">
+                    <button id="verify-age" class="bg-amber-400 hover:bg-amber-300 text-gray-900 font-bold py-2 px-6 rounded-lg transition">I'm 18+</button>
+                    <button id="exit-site" class="bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-6 rounded-lg transition">Exit</button>
+                </div>
+            </div>
         </div>
-        <button class="cart-btn snipcart-checkout" aria-label="Cart">
-          Cart <span class="snipcart-items-count"></span>
-        </button>
-      </nav>
-    </header>
+<!-- Products Section -->
+        <section id="products" class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-12">Our Premium Selection</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product Card 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105">
+                    <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/images/PicsArt_10-14-02.12.19.jpg" alt="Premium Flower" class="w-full h-64 object-cover">
+<div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold">Durban Poison</h3>
+                            <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-2.5 py-0.5 rounded">Sativa</span>
+                        </div>
+                        <div class="mt-2 space-y-1">
+                            <p class="text-gray-600">10g | 22% THC - <span class="font-bold text-green-700">R120</span></p>
+                            <p class="text-gray-600">40g | 22% THC - <span class="font-bold text-green-700">R450</span> <span class="text-xs text-amber-600">(Save R30)</span></p>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center">
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- HERO -->
-    <section class="hero">
-      <h1>Premium THC Cannabis Club</h1>
-      <p>Members-only access to top-tier flower, vapes, concentrates & accessories.</p>
-      <button class="cta-join" onclick="document.getElementById('join').scrollIntoView()">Join the Club</button>
-      <button class="cta-shop snipcart-checkout">Shop Now</button>
-    </section>
+                <!-- Product Card 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105">
+                    <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/images/-qlw3gd.jpg" alt="Gummy Bears" class="w-full h-64 object-cover">
+<div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold">Cannabis Gummy Bears</h3>
+                            <span class="bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded">Edible</span>
+                        </div>
+                        <p class="text-gray-600 mt-2">20 pieces | 10mg THC each</p>
+                        <div class="mt-4 flex justify-between items-center">
+                            <span class="text-2xl font-bold text-green-700">R250</span>
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- CLUB INTRO -->
-    <section class="club-intro" id="club">
-      <h2>Welcome to the Garden</h2>
-      <p>Private members club for cannabis connoisseurs. Exclusive drops, member pricing, and priority access to premium THC products.</p>
-      <div class="tiers">
-        <div class="tier">
-          <h3>Seedling</h3>
-          <p class="price">Free</p>
-          <ul>
-            <li>Member pricing</li>
-            <li>Early access to drops</li>
-            <li>Weekly strain alerts</li>
-          </ul>
-          <button class="btn" onclick="document.getElementById('join').scrollIntoView()">Join Free</button>
-        </div>
-        <div class="tier">
-          <h3>Blossom</h3>
-          <p class="price">R399<span>/mo</span></p>
-          <ul>
-            <li>All Seedling perks</li>
-            <li>Monthly mystery box</li>
-            <li>20% off all products</li>
-            <li>Free delivery</li>
-          </ul>
-          <button class="btn">Coming Soon</button>
-        </div>
-      </div>
-    </section>
+                <!-- Product Card 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105">
+                    <img src="https://huggingface.co/spaces/Legoga/green-high-society-club/resolve/main/images/PicsArt_10-10-05.01.30.png" alt="Leaf Gummies" class="w-full h-64 object-cover">
+<div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold">Leaf Shaped Gummies</h3>
+                            <span class="bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded">Edible</span>
+                        </div>
+                        <p class="text-gray-600 mt-2">15 pieces | 15mg THC each</p>
+                        <div class="mt-4 flex justify-between items-center">
+                            <span class="text-2xl font-bold text-green-700">R300</span>
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- SHOP -->
-    <section class="shop" id="shop">
-      <h2>THC Cannabis Products</h2>
-      <div class="grid">
-        <!-- Product 1 -->
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1628771065518-0d82f1938462?q=80&w=400" alt="Premium THC Flower – Durban Poison" loading="lazy">
-          <div class="card-body">
-            <span class="member-badge">Members Save 20%</span>
-            <h3>Durban Poison (3.5g)</h3>
-            <p class="price">R450.00 <s>R560.00</s></p>
-            <p>Sativa. 22% THC. Energizing.</p>
-            <button class="btn-add snipcart-add-item"
-                    data-item-id="thc-flower-durban"
-                    data-item-price="450.00"
-                    data-item-url="/products/thc-flower-durban"
-                    data-item-name="Durban Poison 3.5g"
-                    data-item-description="Premium sativa. Lab-tested.">
-              Add to Cart
-            </button>
-          </div>
-        </article>
+                <!-- Product Card 4 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-transform hover:scale-105">
+                    <img src="https://static.photos/nature/640x360/53" alt="Pre-rolls" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start">
+                            <h3 class="text-xl font-bold">Outdoor Pre-rolls</h3>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">Hybrid</span>
+                        </div>
+                        <p class="text-gray-600 mt-2">10 joints | 0.5g each</p>
+                        <div class="mt-4 flex justify-between items-center">
+                            <span class="text-2xl font-bold text-green-700">R300</span>
+                            <button class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+</div>
+        </section>
 
-        <!-- Product 2 -->
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1628771065518-0d82f1938462?q=80&w=400" alt="THC Vape Cartridge" loading="lazy">
-          <div class="card-body">
-            <span class="member-badge">Members Save 20%</span>
-            <h3>OG Kush Vape (1g)</h3>
-            <p class="price">R580.00 <s>R720.00</s></p>
-            <p>Indica. 85% THC. Relaxing.</p>
-            <button class="btn-add snipcart-add-item"
-                    data-item-id="thc-vape-og"
-                    data-item-price="580.00"
-                    data-item-url="/products/thc-vape-og"
-                    data-item-name="OG Kush Vape 1g"
-                    data-item-description="Full-spectrum distillate.">
-              Add to Cart
-            </button>
-          </div>
-        </article>
+        <!-- Membership Section -->
+        <section id="join" class="bg-white rounded-xl shadow-lg p-8 mb-16">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold mb-6">Join Our Exclusive Club</h2>
+                <p class="text-gray-600 mb-8">Get access to member-only products, special pricing, and exclusive events.</p>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-green-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4">Basic Membership</h3>
+                        <p class="text-3xl font-bold text-green-700 mb-4">Free</p>
+                        <ul class="space-y-2 text-left">
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                Member pricing
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                Product alerts
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-green-500 mr-2"></i>
+                                Newsletter
+                            </li>
+                        </ul>
+                        <button class="mt-6 w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg transition">Sign Up</button>
+                    </div>
+                    
+                    <div class="bg-amber-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4">Premium Membership</h3>
+                        <p class="text-3xl font-bold text-amber-700 mb-4">R399<span class="text-lg">/month</span></p>
+                        <ul class="space-y-2 text-left">
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-amber-500 mr-2"></i>
+                                All Basic benefits
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-amber-500 mr-2"></i>
+                                20% discount
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-amber-500 mr-2"></i>
+                                Free delivery
+                            </li>
+                            <li class="flex items-center">
+                                <i data-feather="check" class="text-amber-500 mr-2"></i>
+                                Monthly mystery box
+                            </li>
+                        </ul>
+                        <button class="mt-6 w-full bg-amber-500 hover:bg-amber-400 text-white py-2 px-4 rounded-lg transition">Coming Soon</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-        <!-- Product 3 -->
-        <article class="card">
-          <img src="https://images.unsplash.com/photo-1628771065518-0d82f1938462?q=80&w=400" alt="Live Resin Concentrate" loading="lazy">
-          <div class="card-body">
-            <span class="member-badge">Members Save 20%</span>
-            <h3>Live Resin (1g)</h3>
-            <p class="price">R750.00 <s>R940.00</s></p>
-            <p>Hybrid. 78% THC. Terpene-rich.</p>
-            <button class="btn-add snipcart-add-item"
-                    data-item-id="thc-resin"
-                    data-item-price="750.00"
-                    data-item-url="/products/thc-resin"
-                    data-item-name="Live Resin 1g"
-                    data-item-description="Fresh-frozen extraction.">
-              Add to Cart
-            </button>
-          </div>
-        </article>
-      </div>
-    </section>
+    <custom-footer></custom-footer>
 
-    <!-- JOIN FORM -->
-    <section class="membership" id="join">
-      <h2>Join the Club</h2>
-      <p>Get member pricing, exclusive drops, and priority access.</p>
-      <form action="https://formspree.io/f/your-form-id" method="POST">
-        <input type="email" name="email" placeholder="Your email" required />
-        <input type="text" name="name" placeholder="Full name" />
-        <button type="submit">Join Now</button>
-      </form>
-      <p style="font-size:0.8rem; margin-top:1rem;">No spam. Unsubscribe anytime.</p>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-      <p>&copy; <span id="year"></span> <strong>Garden of Eden ZA</strong></p>
-      <p>
-        <a href="/contact">Contact</a> |
-        <a href="/terms">Terms</a> |
-        <a href="/privacy">Privacy</a>
-      </p>
-      <p class="compliance">
-        For adults 18+ only. THC products for private use only. Not for resale. Know your local laws.
-      </p>
-    </footer>
-  </div>
-
-  <!-- COOKIE BANNER -->
-  <div id="cookie-banner">
-    We use cookies to enhance your experience.
-    <button onclick="acceptCookies()">Accept</button>
-  </div>
-
-  <!-- Snipcart -->
-  <script async src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js"></script>
-  <div hidden id="snipcart" data-api-key="YOUR_PUBLIC_TEST_KEY_HERE" data-config-modal-style="side"></div>
-
-  <!-- Scripts -->
-  <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Age Gate (18+)
-    function verifyAge(e) {
-      e.preventDefault();
-      const year = document.getElementById('birth-year').value.trim();
-      const age = new Date().getFullYear() - parseInt(year);
-      if (year && age >= 18) hideAgeGate();
-      else { alert('Must be 18+'); window.location.href = 'https://google.com'; }
-    }
-    function hideAgeGate() {
-      const gate = document.getElementById('age-gate');
-      const main = document.getElementById('main');
-      gate.style.display = 'none'; gate.setAttribute('aria-hidden', 'true');
-      main.hidden = false;
-      try { localStorage.setItem('ageVerified', 'true'); } catch(e) {}
-      showCookieBanner();
-    }
-    window.addEventListener('DOMContentLoaded', () => {
-      if (localStorage.getItem('ageVerified') === 'true') hideAgeGate();
-    });
-
-    // Cookie Banner
-    function showCookieBanner() {
-      const banner = document.getElementById('cookie-banner');
-      if (!localStorage.getItem('cookieConsent')) banner.classList.add('show');
-    }
-    function acceptCookies() {
-      localStorage.setItem('cookieConsent', 'true');
-      document.getElementById('cookie-banner').classList.remove('show');
-    }
-  </script>
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+    </script>
+<script src="https://huggingface.co/deepsite/deepsite-badge.js"></script>
 </body>
 </html>
