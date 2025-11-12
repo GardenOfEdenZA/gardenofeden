@@ -85,6 +85,7 @@
       border-radius: 1rem;
       box-shadow: 0 8px 25px rgba(0,0,0,0.15);
       transition: transform 0.3s ease;
+      object-fit: cover;
     }
     .product-img:hover {
       transform: scale(1.02);
@@ -176,12 +177,12 @@
           <h3 class="text-2xl font-bold mb-6 text-primary">Strains: Tropical Skunk & Alpha Express</h3>
           <div class="grid md:grid-cols-2 gap-8 items-center">
             <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-xl border border-green-100 text-center">
-              <img src="https://i.postimg.cc/rRCVR9G2/20251112-115445.jpg" alt="Tropical Skunk" class="w-full h-48 object-cover product-img mb-4">
+              <img src="https://i.postimg.cc/rRCVR9G2/20251112-115445.jpg" alt="Tropical Skunk" class="w-full h-48 product-img mb-4">
               <p class="text-lg font-semibold text-gray-800">10 grams</p>
               <p class="price">R120</p>
             </div>
             <div class="bg-gradient-to-br from-amber-50 to-yellow-50 p-6 rounded-xl border border-amber-100 text-center">
-              <img src="https://i.postimg.cc/D4dv4cQS/20251112-115355.jpg" alt="Alpha Express" class="w-full h-48 object-cover product-img mb-4">
+              <img src="https://i.postimg.cc/D4dv4cQS/20251112-115355.jpg" alt="Alpha Express" class="w-full h-48 product-img mb-4">
               <p class="text-lg font-semibold text-gray-800">40 grams</p>
               <p class="price">R450</p>
               <p class="text-sm text-amber-700 font-medium">(Save R30)</p>
@@ -195,13 +196,13 @@
           <div class="grid md:grid-cols-2 gap-8 items-center">
             <div class="space-y-6">
               <div class="bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-xl border border-blue-100 text-center">
-                <img src="https://i.postimg.cc/2LFkLxdb/20251112-114115.jpg" alt="Stoner Days" class="w-full h-40 object-cover product-img mb-3">
+                <img src="https://i.postimg.cc/2LFkLxdb/20251112-114115.jpg" alt="Stoner Days" class="w-full h-40 product-img mb-3">
                 <p class="text-lg font-semibold">10x Outdoor Pre-rolls</p>
                 <p class="price">R300</p>
                 <p class="text-xs italic text-gray-600">Stoner Days™ – Premium, hand-rolled</p>
               </div>
               <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-100 text-center">
-                <img src="https://i.postimg.cc/sG9jGJPB/20251112-114040.jpg" alt="Classic Pre-rolls" class="w-full h-40 object-cover product-img mb-3">
+                <img src="https://i.postimg.cc/sG9jGJPB/20251112-114040.jpg" alt="Classic Pre-rolls" class="w-full h-40 product-img mb-3">
                 <p class="text-lg font-semibold">5x Greenhouse Pre-rolls</p>
                 <p class="price">R250</p>
                 <p class="text-xs italic text-gray-600">Classic. Clean. Ready.</p>
@@ -218,7 +219,7 @@
 
             <!-- GUMMY BEARS -->
             <div class="bg-gradient-to-br from-red-50 to-rose-50 p-6 rounded-xl border border-red-100 text-center">
-              <img src="https://i.postimg.cc/0KdkKCGJ/20251112-112804.jpg" alt="Gummy Bears" class="w-full h-48 object-cover product-img mb-4">
+              <img src="https://i.postimg.cc/0KdkKCGJ/20251112-112804.jpg" alt="Gummy Bears" class="w-full h-48 product-img mb-4">
               <p class="text-lg font-semibold">Gummy Bears (10mg THC)</p>
               <p class="text-sm text-gray-700">15x → R90 ‖ 30x → R150</p>
             </div>
@@ -231,7 +232,7 @@
                   <p class="text-sm text-gray-700 mt-1">2x → R80 ‖ 5x → R200</p>
                 </div>
                 <div class="flex-1">
-                  <img src="https://i.postimg.cc/2z4qK5v/leaf-gummies.jpg" alt="Leaf Gummies" class="w-full h-48 object-cover product-img">
+                  <img src="https://i.postimg.cc/2z4qK5v/leaf-gummies.jpg" alt="Leaf Gummies" class="w-full h-48 product-img">
                   <p class="text-xs text-center text-gray-500 mt-2 italic">Handcrafted. 50mg THC per leaf.</p>
                 </div>
               </div>
@@ -295,7 +296,7 @@
         document.getElementById('age-verification').remove();
         localStorage.setItem('ageVerified', 'true');
       } else {
-        alert("You must be 18+ to enter.");
+        alert("You must be  gambar18+ to enter.");
         window.location.href = "https://google.com";
       }
     };
