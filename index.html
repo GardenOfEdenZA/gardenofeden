@@ -1,115 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Garden Of Eden Cannabis Club</title>
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ <title>The Garden Of Eden Cannabis Club</title>
 
-  <!-- FAVICON & LOGO -->
-  <link rel="icon" href="https://i.postimg.cc/3XvM7iK/logo.png" type="image/png">
+ <!-- FAVICON & LOGO -->
+ <link rel="icon" href="https://i.postimg.cc/3XvM7iK/logo.png" type="image/png">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="The Garden Of Eden Cannabis Club" />
-  <meta property="og:description" content="Where Bliss Meets Bud. Premium THC cannabis. 18+ only." />
-  <meta property="og:image" content="https://i.postimg.cc/3XvM7iK/logo.png" />
-  <meta property="og:url" content="https://garden-of-eden-cannabis-club.vercel.app" />
-  <meta property="og:type" content="website" />
+ <!-- Open Graph -->
+ <meta property="og:title" content="The Garden Of Eden Cannabis Club" />
+ <meta property="og:description" content="Where Bliss Meets Bud. Premium THC cannabis. 18+ only." />
+ <meta property="og:image" content="https://i.postimg.cc/3XvM7iK/logo.png" />
+ <meta property="og:url" content="https://garden-of-eden-cannabis-club.vercel.app" />
+ <meta property="og:type" content="website" />
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            primary: '#1a3a32',
-            secondary: '#d4af37',
-            accent: '#0f1e1a',
-            muted: '#f5f5f5',
-          },
-          fontFamily: {
-            serif: ['"Playfair Display"', 'serif'],
-            sans: ['Inter', 'sans-serif'],
-          },
-        },
-      },
-    };
-  </script>
+ <!-- Tailwind CDN -->
+ <script src="https://cdn.tailwindcss.com"></script>
+ <script>
+ tailwind.config = {
+ theme: {
+ extend: {
+ colors: {
+ primary: '#1a3a32',
+ secondary: '#d4af37',
+ accent: '#0f1e1a',
+ muted: '#f5f5f5',
+ whatsapp: '#25D366',
+ },
+ fontFamily: {
+ serif: ['"Playfair Display"', 'serif'],
+ sans: ['Inter', 'sans-serif'],
+ },
+ },
+ },
+ };
+ </script>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+ <!-- Google Fonts -->
+ <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-  <!-- Feather Icons -->
-  <script src="https://unpkg.com/feather-icons"></script>
+ <!-- Feather Icons -->
+ <script src="https://unpkg.com/feather-icons"></script>
 
-  <style>
-    :root {
-      --primary: #1a3a32;
-      --secondary: #d4af37;
-      --accent: #0f1e1a;
-      --muted: #f5f5f5;
-    }
-    body {
-      background: #f9f9f9;
-      font-family: 'Inter', sans-serif;
-      color: #333;
-    }
-    .hero {
-      background: linear-gradient(rgba(26,58,50,0.9), rgba(26,58,50,0.9)), url('https://images.unsplash.com/photo-1516205651411-a1f726d29620?q=80&w=1600') center/cover;
-      color: white;
-      border-radius: 1rem;
-      overflow: hidden;
-    }
-    #age-verification {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.95);
-      display: flex; align-items: center; justify-content: center; z-index: 9999;
-    }
-    #age-verification-content {
-      background: white; border-radius: 1rem; padding: 2.5rem; max-width: 90%; text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    }
-    .logo-img { height: 50px; width: auto; }
-    .hero-logo { height: 200px; width: auto; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
-    .footer-logo { height: 90px; width: auto; }
-    .menu-card { background: white; border-radius: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-    .btn-gold {
-      background: linear-gradient(135deg, #d4af37, #b8961e);
-      color: #1a1a1a; font-weight: 600; border-radius: 0.75rem;
-      padding: 0.75rem 1.75rem; transition: all 0.3s ease;
-    }
-    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(212,175,55,0.4); }
-    .price { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
-    .section-title { font-family: 'Playfair Display', serif; font-weight: 700; }
-    .product-img {
-      border-radius: 1rem;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease;
-    }
-    .product-img:hover {
-      transform: scale(1.02);
-    }
-  </style>
+ <style>
+ :root {
+ --primary: #1a3a32;
+ --secondary: #d4af37;
+ --accent: #0f1e1a;
+ --muted: #f5f5f5;
+ }
+ body {
+ background: #f9f9f9;
+ font-family: 'Inter', sans-serif;
+ color: #333;
+ }
+ .hero {
+ background: linear-gradient(rgba(26,58,50,0.9), rgba(26,58,50,0.9)), url('https://images.unsplash.com/photo-1516205651411-a1f726d29620?q=80&w=1600') center/cover;
+ color: white;
+ border-radius: 1rem;
+ overflow: hidden;
+ }
+ #age-verification {
+ position: fixed; inset: 0; background: rgba(0,0,0,0.95);
+ display: flex; align-items: center; justify-content: center; z-index: 9999;
+ }
+ #age-verification-content {
+ background: white; border-radius: 1rem; padding: 2.5rem; max-width: 90%; text-align: center;
+ box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+ }
+ .logo-img { height: 50px; width: auto; }
+ .hero-logo { height: 200px; width: auto; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
+ .footer-logo { height: 90px; width: auto; }
+ .menu-card { background: white; border-radius: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+ .btn-gold {
+ background: linear-gradient(135deg, #d4af37, #b8961e);
+ color: #1a1a1a; font-weight: 600; border-radius: 0.75rem;
+ padding: 0.75rem 1.75rem; transition: all 0.3s ease;
+ }
+ .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(212,175,55,0.4); }
+ .price { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+ .section-title { font-family: 'Playfair Display', serif; font-weight: 700; }
+ .product-img {
+ border-radius: 1rem;
+ box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+ transition: transform 0.3s ease;
+ }
+ .product-img:hover {
+ transform: scale(1.02);
+ }
+
+ /* WHATSAPP FLOATING BUTTON */
+ .whatsapp-float {
+ position: fixed;
+ bottom: 20px;
+ right: 20px;
+ background: #25D366;
+ color: white;
+ width: 60px;
+ height: 60px;
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 30px;
+ box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+ z-index: 1000;
+ transition: all 0.3s ease;
+ animation: pulse 2s infinite;
+ }
+ .whatsapp-float:hover {
+ transform: scale(1.1);
+ box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+ }
+ @keyframes pulse {
+ 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+ 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+ 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+ }
+ </style>
 </head>
 
 <body class="bg-gray-50">
 
-  <!-- AGE VERIFICATION -->
-  <div id="age-verification">
-    <div id="age-verification-content">
-      <img src="https://i.postimg.cc/3XvM7iK/logo.png" alt="Logo" class="h-24 mx-auto mb-6">
-      <h2 class="text-3xl font-bold mb-3 text-primary">Members Only</h2>
-      <p class="mb-6 text-gray-700">You must be <strong>18 or older</strong> to enter.</p>
-      <div class="flex gap-4 justify-center">
-        <button id="verify-age" class="btn-gold text-lg">Enter Club</button>
-        <button id="exit-site" class="bg-gray-700 hover:bg-gray-800 text-white font-medium py-3 px-6 rounded-lg">Exit</button>
-      </div>
-    </div>
-  </div>
+ <!-- AGE VERIFICATION -->
+ <div id="age-verification">
+ <div id="age-verification-content">
+ <img src="https://i.postimg.cc/3XvM7iK/logo.png" alt="Logo" class="h-24 mx-auto mb-6">
+ <h2 class="text-3xl font-bold mb-3 text-primary">Members Only</h2>
+ <p class="mb-6 text-gray-700">You must be <strong>18 or older</strong> to enter.</p>
+ <div class="flex gap-4 justify-center">
+ <button id="verify-age" class="btn-gold text-lg">Enter Club</button>
+ <button id="exit-site" class="bg-gray-700 hover:bg-gray-800 text-white font-medium py-3 px-6 rounded-lg">Exit</button>
+ </div>
+ </div>
+ </div>
 
-  <!-- NAVBAR -->
-  <nav class="bg-primary text-white shadow-xl sticky top-0 z-50">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#" class="flex items-center gap-3">
-        <img src="https://i.postimg.cc/3XvM7iK/logo.png" alt="Logo" class="logo-img">
-        <span class="text-xl font-bold hidden md:inline">The Garden Of Eden</span>
-      </a
+ <!-- NAVBAR -->
+ <nav class="bg-primary text-white shadow-xl sticky top-0 z-50">
+ <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+ <a href="#" class="flex items-center gap-3">
+ <img src="https://i.postimg.cc/3XvM7iK/logo.png" alt="Logo" class="logo-img">
+ <span class="text-xl font-bold hidden md:inline">The Garden Of Eden</span>
+ </a>
+ <div class="flex items-center gap-8">
+ <a href="#menu" class="hover:text-secondary transition font-medium">Menu</a>
+ <a href="#join" class="hover:text-secondary transition font-medium">Join</a>
+ <button id="cart-btn" class="flex items-center gap-2 hover:text-secondary font-medium">
+ Cart <span id="cart-count" class="text-xs bg-secondary text-primary rounded-full w-6 h-6 flex items-center justify-center font-bold">0</span>
+ </button>
+ </div>
+ </div>
+ </nav>
+
+ <main class="container mx-auto px-6 py-12">
+
+ <!-- HERO -->
+ <section class="hero rounded-2xl p-10 md:p-16 mb-16 text-center">
+ <img src="https://i.postimg.cc/3XvM7iK/logo.png" alt="Logo" 
