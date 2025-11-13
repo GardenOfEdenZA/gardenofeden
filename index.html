@@ -142,8 +142,39 @@
       animation: float 3s ease-in-out infinite;
       transition: all 0.3s;
     }
-    .whatsapp-float:hover {
-      transform: scale(1.1);
+    .whatsapp-float:hover { transform: scale(1.1); }
+    .cart-float {
+      position: fixed;
+      bottom: 100px;
+      right: 24px;
+      background: #1a3a32;
+      color: white;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 6px 20px rgba(26,58,50,0.4);
+      z-index: 50;
+      transition: all 0.3s;
+    }
+    .cart-float:hover { transform: scale(1.1); }
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: #d4af37;
+      color: #1a1a1a;
+      font-size: 12px;
+      font-weight: bold;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .handwritten-title {
       font-family: 'Dancing Script', cursive;
@@ -155,15 +186,54 @@
     @media (max-width: 640px) {
       .handwritten-title { font-size: 3rem; }
     }
+    /* Age Gate */
+    #ageGate {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(15,30,26,0.98);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s;
+    }
+    .age-modal {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 1.5rem;
+      text-align: center;
+      max-width: 90%;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+    .dark .age-modal { background: #1a2a24; color: white; }
   </style>
 </head>
 
 <body class="min-h-screen transition-colors duration-300">
 
+  <!-- AGE GATE (18+) -->
+  <div id="ageGate">
+    <div class="age-modal p-8">
+      <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">Members Only</h2>
+      <p class="text-lg mb-6">You must be 18 or older to enter The Garden Of Eden Cannabis Club.</p>
+      <button id="ageConfirm" class="btn-gold text-lg px-8 py-3">
+        I am 18+ <i data-feather="check" class="inline w-5 h-5 ml-1"></i>
+      </button>
+      <p class="mt-6 text-sm text-gray-600 dark:text-gray-400">Not of legal age? Please exit.</p>
+    </div>
+  </div>
+
   <!-- WhatsApp Float -->
   <a href="https://wa.me/27812345678?text=Hi%20Garden%20Of%20Eden!%20I'd%20like%20to%20know%20more%20about%20membership." 
      class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
     <i data-feather="message-circle"></i>
+  </a>
+
+  <!-- Cart Float -->
+  <a href="#cart" class="cart-float" id="cartButton">
+    <i data-feather="shopping-bag"></i>
+    <span class="cart-count" id="cartCount">0</span>
   </a>
 
   <!-- Hero Section -->
@@ -213,8 +283,6 @@
 
       <!-- Pre-rolled Joints -->
       <div class="grid md:grid-cols-2 gap-8 mb-12">
-
-        <!-- 10x Outdoor Pre-rolls -->
         <div class="product-card">
           <div class="bg-gradient-to-br from-amber-600 to-amber-700 p-5 text-white">
             <h3 class="text-2xl font-serif font-bold">Pre-rolled Joints</h3>
@@ -232,7 +300,6 @@
           </div>
         </div>
 
-        <!-- 5x Greenhouse Pre-rolls -->
         <div class="product-card">
           <div class="bg-gradient-to-br from-emerald-600 to-emerald-700 p-5 text-white">
             <h3 class="text-2xl font-serif font-bold">Pre-rolled Joints</h3>
@@ -285,16 +352,15 @@
         </div>
       </div>
 
-      <!-- Contact -->
+      <!-- Contact (4 Icons Only) -->
       <div class="text-center py-12">
-        <h3 class="text-3xl font-serif font-bold text-primary mb-4">CONTACT US NOW</h3>
-        <div class="flex justify-center space-x-6 text-3xl">
+        <h3 class="text-3xl font-serif font-bold text-primary mb-6">@GardenOfEdenZA</h3>
+        <div class="flex justify-center space-x-8 text-4xl">
           <a href="https://instagram.com/GardenOfEdenZA" target="_blank" class="text-pink-600 hover:scale-110 transition"><i data-feather="instagram"></i></a>
           <a href="https://facebook.com/GardenOfEdenZA" target="_blank" class="text-blue-600 hover:scale-110 transition"><i data-feather="facebook"></i></a>
           <a href="https://x.com/GardenOfEdenZA" target="_blank" class="text-black dark:text-white hover:scale-110 transition"><i data-feather="twitter"></i></a>
-          <a href="https://tiktok.com/@GardenOfEdenZA" target="_blank" class="text-black dark:text-white hover:scale-110 transition"><i data-feather="play-circle"></i></a>
+          <a href="https://wa.me/27812345678" target="_blank" class="text-whatsapp hover:scale-110 transition"><i data-feather="message-circle"></i></a>
         </div>
-        <p class="mt-6 text-lg font-medium text-primary">@GardenOfEdenZA</p>
       </div>
 
       <!-- Age Warning -->
@@ -317,14 +383,52 @@
     // Feather Icons
     feather.replace();
 
-    // Dark Mode Toggle
+    // Age Gate
+    const ageGate = document.getElementById('ageGate');
+    const ageConfirm = document.getElementById('ageConfirm');
+    ageConfirm.addEventListener('click', () => {
+      ageGate.style.opacity = '0';
+      setTimeout(() => { ageGate.style.display = 'none'; }, 500);
+      localStorage.setItem('ageVerified', 'true');
+    });
+
+    // Check if already verified
+    if (localStorage.getItem('ageVerified') === 'true') {
+      ageGate.style.display = 'none';
+    }
+
+    // Cart System (Basic)
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartCount = document.getElementById('cartCount');
+    const updateCartCount = () => {
+      cartCount.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
+    };
+    updateCartCount();
+
+    // Add to Cart (example: click product image)
+    document.querySelectorAll('.product-card img').forEach((img, i) => {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', () => {
+        const product = {
+          id: i,
+          name: img.alt.split(' - ')[0],
+          price: [450, 300, 250, 200][i] || 120,
+          qty: 1
+        };
+        const existing = cart.find(p => p.id === product.id);
+        if (existing) existing.qty++;
+        else cart.push(product);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+      });
+    });
+
+    // Dark Mode
     const toggle = document.getElementById('darkModeToggle');
     toggle.addEventListener('click', () => {
       document.documentElement.classList.toggle('dark');
       localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
     });
-
-    // Respect system preference
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark');
     }
