@@ -70,11 +70,25 @@
   <!-- FEATHER ICONS -->
   <script src="https://unpkg.com/feather-icons"></script>
 
-  <!-- FULL CSS (INCLUDING NEW FEATURES) -->
+  <!-- FULL CSS -->
   <style>
     body { background: #f9f9f9; font-family: 'Inter', sans-serif; color: #222; }
     .dark body { background: #0f1e1a; color: #e0e0e0; }
-    .hero { background: linear-gradient(rgba(26,58,50,0.92), rgba(26,58,50,0.95)), url('https://images.pexels.com/photos/414579/pexels-photo-414579.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover; color: white; }
+    .hero { 
+      background: linear-gradient(rgba(26,58,50,0.92), rgba(26,58,50,0.95)), 
+                  url('https://images.pexels.com/photos/414579/pexels-photo-414579.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover; 
+      color: white; 
+      position: relative;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at center top, rgba(26,58,50,0.7), rgba(26,58,50,0.98));
+      z-index: 1;
+    }
+    .hero > div { position: relative; z-index: 2; }
+
     .btn-gold { background: linear-gradient(135deg, #d4af37, #b8961e); color: #1a1a1a; font-weight: 600; border-radius: 0.75rem; padding: 0.75rem 1.75rem; transition: all 0.3s; }
     .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(212,175,55,0.4); }
     .product-card { transition: all 0.3s ease; border-radius: 1rem; overflow: hidden; background: white; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
@@ -134,6 +148,16 @@
       transform: translateX(0);
       opacity: 1;
     }
+
+    /* LOGO FLOAT ANIMATION */
+    @keyframes float-logo {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(1deg); }
+    }
+    .animate-float-logo {
+      animation: float-logo 4s ease-in-out infinite;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+    }
   </style>
 </head>
 
@@ -164,9 +188,20 @@
     <span class="cart-count" id="cartCount">0</span>
   </button>
 
-  <!-- HERO -->
-  <section class="hero py-20 px-6 md:px-12 lg:px-24 xl:px-32">
+  <!-- HERO — WITH LOGO -->
+  <section class="hero py-20 px-6 md:px-12 lg:px-24 xl:px-32 relative overflow-hidden">
     <div class="max-w-7xl mx-auto text-center">
+
+      <!-- LOGO -->
+      <div class="mb-6 flex justify-center">
+        <img 
+          src="https://i.postimg.cc/057FNtY3/Pics-Art-11-12-04-31-13.png" 
+          alt="The Garden Of Eden Logo" 
+          class="w-32 h-32 md:w-40 md:h-40 object-contain drop-shadow-2xl animate-float-logo"
+          loading="eager"
+        >
+      </div>
+
       <h1 class="handwritten-title text-secondary mb-2 animate-pulse-slow">THE GARDEN OF EDEN</h1>
       <p class="text-lg md:text-xl font-medium tracking-wider text-white/90">Where Bliss Meets Bud...</p>
       <div class="mt-8 space-x-4">
@@ -369,7 +404,7 @@
     <i data-feather="sun" class="w-6 h-6 dark:hidden"></i>
   </button>
 
-  <!-- FULL SCRIPT (WITH UX ENHANCEMENTS) -->
+  <!-- FULL SCRIPT -->
   <script>
     feather.replace();
 
@@ -432,7 +467,7 @@
       });
     });
 
-    // ADD TO CART — ENHANCED WITH LOADING + SUCCESS
+    // ADD TO CART — ENHANCED
     document.querySelectorAll('.add-selected, .add-to-cart-btn, .add-selected-edibles').forEach(btn => {
       const loading = btn.parentNode.querySelector('.loading');
 
