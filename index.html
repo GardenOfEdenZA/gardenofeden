@@ -1,24 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
+  <!-- META -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Garden Of Eden Cannabis Club</title>
+  <meta name="theme-color" content="#1a3a32" />
+  <meta name="description" content="The Garden Of Eden Cannabis Club | Premium THC Strains, Pre-rolls & Edibles | Cape Town | 18+ Only" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://garden-of-eden-c-Cannabis-club.vercel.app" />
 
-  <!-- FAVICON & LOGO -->
-  <link rel="icon" href="https://i.postimg.cc/7Y8wZ2kL/garden-of-eden-logo-final.png" type="image/png">
+  <!-- TITLE -->
+  <title>The Garden Of Eden | Premium THC | Cape Town</title>
 
-  <!-- Open Graph -->
+  <!-- FAVICON -->
+  <link rel="icon" href="https://i.postimg.cc/057FNtY3/Pics-Art-11-12-04-31-13.png" type="image/png">
+  <link rel="apple-touch-icon" href="https://i.postimg.cc/057FNtY3/Pics-Art-11-12-04-31-13.png">
+
+  <!-- OPEN GRAPH -->
   <meta property="og:title" content="The Garden Of Eden Cannabis Club" />
-  <meta property="og:description" content="Where Bliss Meets Bud. Premium THC cannabis. 18+ only." />
-  <meta property="og:image" content="https://i.postimg.cc/7Y8wZ2kL/garden-of-eden-logo-final.png" />
+  <meta property="og:description" content="Where Bliss Meets Bud. Premium THC in Cape Town. Members Only. 18+." />
+  <meta property="og:image" content="https://i.postimg.cc/057FNtY3/Pics-Art-11-12-04-31-13.png" />
   <meta property="og:url" content="https://garden-of-eden-cannabis-club.vercel.app" />
   <meta property="og:type" content="website" />
 
-  <!-- Tailwind CDN -->
+  <!-- STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "The Garden Of Eden Cannabis Club",
+    "url": "https://garden-of-eden-cannabis-club.vercel.app",
+    "logo": "https://i.postimg.cc/057FNtY3/Pics-Art-11-12-04-31-13.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Customer Service",
+      "telephone": "+27812345678"
+    }
+  }
+  </script>
+
+  <!-- PWA MANIFEST -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- TAILWIND CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -31,288 +59,272 @@
           fontFamily: {
             serif: ['"Playfair Display"', 'serif'],
             sans: ['Inter', 'sans-serif'],
+            handwritten: ['"Dancing Script"', 'cursive'],
           },
+          animation: {
+            'pulse-slow': 'pulse 3s infinite',
+            'float': 'float 3s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' }
+            }
+          }
         },
       },
     };
   </script>
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
-  <!-- Feather Icons -->
+  <!-- FEATHER ICONS -->
   <script src="https://unpkg.com/feather-icons"></script>
 
-  <style>
-    :root {
-      --primary: #1a3a32;
-      --secondary: #d4af37;
-      --accent: #0f1e1a;
-      --muted: #f5f5f5;
-    }
-    body {
-      background: #f9f9f9;
-      font-family: 'Inter', sans-serif;
-      color: #333;
-    }
-    .hero {
-      background: 
-        linear-gradient(rgba(26,58,50,0.85), rgba(26,58,50,0.9)),
-        url('https://images.unsplash.com/photo-1516205651411-a1f726d29620?q=80&w=1600') center/cover,
-        url('https://i.postimg.cc/3xR5b3kM/garden-of-eden-logo-transparent.png') center/30% repeat;
-      background-blend-mode: overlay;
-      color: white;
-      border-radius: 1rem;
-      overflow: hidden;
-    }
-    #age-verification {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.95);
-      display: flex; align-items: center; justify-content: center; z-index: 9999;
-    }
-    #age-verification-content {
-      background: white; border-radius: 1rem; padding: 2.5rem; max-width: 90%; text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    }
-    .logo-img { height: 50px; width: auto; }
-    .hero-logo { height: 220px; width: auto; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3)); }
-    .footer-logo { height: 100px; width: auto; }
-    .menu-card { background: white; border-radius: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-    .btn-gold {
-      background: linear-gradient(135deg, #d4af37, #b8961e);
-      color: #1a1a1a; font-weight: 600; border-radius: 0.75rem;
-      padding: 0.75rem 1.75rem; transition: all 0.3s ease;
-    }
-    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(212,175,55,0.4); }
-    .price { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
-    .section-title { font-family: 'Playfair Display', serif; font-weight: 700; }
-    .product-img {
-      border-radius: 1rem;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease;
-      object-fit: cover;
-    }
-    .product-img:hover { transform: scale(1.02); }
-    .product-desc { font-size: 0.875rem; color: #555; margin-top: 0.5rem; line-height: 1.5; }
-    .leaf-bg { background: url('https://i.postimg.cc/3xR5b3kM/garden-of-eden-logo-transparent.png') center/15% repeat; opacity: 0.05; }
+  <!-- GOOGLE ANALYTICS (Replace ID) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YOUR-ID-HERE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YOUR-ID-HERE', { anonymize_ip: true });
+  </script>
 
-    /* WHATSAPP FLOATING BUTTON */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25D366;
-      color: white;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 30px;
-      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-      z-index: 1000;
-      transition: all 0.3s ease;
-      animation: pulse 2s infinite;
+  <!-- CRITICAL CSS -->
+  <style>
+    body { background: #f9f9f9; font-family: 'Inter', sans-serif; color: #222; }
+    .dark body { background: #0f1e1a; color: #e0e0e0; }
+    .hero { 
+      background: linear-gradient(rgba(26,58,50,0.92), rgba(26,58,50,0.95)), 
+                  url('https://images.pexels.com/photos/414579/pexels-photo-414579.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover; 
+      color: white; 
+    }
+    .btn-gold { 
+      background: linear-gradient(135deg, #d4af37, #b8961e); 
+      color: #1a1a1a; 
+      font-weight: 600; 
+      border-radius: 0.75rem; 
+      padding: 0.75rem 1.75rem; 
+      transition: all 0.3s; 
+    }
+    .btn-gold:hover { 
+      transform: translateY(-2px); 
+      box-shadow: 0 8px 20px rgba(212,175,55,0.4); 
+    }
+    .product-card { 
+      transition: all 0.3s ease; 
+      border-radius: 1rem; 
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+    .dark .product-card { background: #1a2a24; }
+    .product-card:hover { 
+      transform: translateY(-6px); 
+      box-shadow: 0 16px 35px rgba(0,0,0,0.15); 
+    }
+    .whatsapp-float { 
+      position: fixed; 
+      bottom: 24px; 
+      right: 24px; 
+      background: #25D366; 
+      color: white; 
+      width: 64px; 
+      height: 64px; 
+      border-radius: 50%; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      font-size: 32px; 
+      box-shadow: 0 6px 20px rgba(37,211,102,0.4); 
+      z-index: 50;
+      animation: float 3s ease-in-out infinite;
+      transition: all 0.3s;
     }
     .whatsapp-float:hover {
       transform: scale(1.1);
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
     }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    .handwritten-title {
+      font-family: 'Dancing Script', cursive;
+      font-weight: 700;
+      font-size: 4.5rem;
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+    @media (max-width: 640px) {
+      .handwritten-title { font-size: 3rem; }
     }
   </style>
 </head>
 
-<body class="bg-gray-50">
+<body class="min-h-screen transition-colors duration-300">
 
-  <!-- AGE VERIFICATION -->
-  <div id="age-verification">
-    <div id="age-verification-content">
-      <img src="https://i.postimg.cc/7Y8wZ2kL/garden-of-eden-logo-final.png" alt="Logo" class="h-24 mx-auto mb-6">
-      <h2 class="text-3xl font-bold mb-3 text-primary">Members Only</h2>
-      <p class="mb-6 text-gray-700">You must be <strong>18 or older</strong> to enter.</p>
-      <div class="flex gap-4 justify-center">
-        <button id="verify-age" class="btn-gold text-lg">Enter Club</button>
-        <button id="exit-site" class="bg-gray-700 hover:bg-gray-800 text-white font-medium py-3 px-6 rounded-lg">Exit</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- NAVBAR -->
-  <nav class="bg-primary text-white shadow-xl sticky top-0 z-50">
-    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#" class="flex items-center gap-3">
-        <img src="https://i.postimg.cc/7Y8wZ2kL/garden-of-eden-logo-final.png" alt="Logo" class="logo-img">
-        <span class="text-xl font-bold hidden md:inline">The Garden Of Eden</span>
-      </a>
-      <div class="flex items-center gap-8">
-        <a href="#menu" class="hover:text-secondary transition font-medium">Menu</a>
-        <a href="#join" class="hover:text-secondary transition font-medium">Join</a>
-        <button id="cart-btn" class="flex items-center gap-2 hover:text-secondary font-medium">
-          Cart <span id="cart-count" class="text-xs bg-secondary text-primary rounded-full w-6 h-6 flex items-center justify-center font-bold">0</span>
-        </button>
-      </div>
-    </div>
-  </nav>
-
-  <main class="container mx-auto px-6 py-12">
-
-    <!-- HERO + WATERMARK -->
-    <section class="hero rounded-2xl p-10 md:p-16 mb-16 text-center relative">
-      <img src="https://i.postimg.cc/3xR5b3kM/garden-of-eden-logo-transparent.png" alt="The Garden Of Eden Logo" class="hero-logo mb-6">
-      <h1 class="text-5xl md:text-6xl font-bold mb-3 section-title">The Garden Of Eden</h1>
-      <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90">Cannabis Club</p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#join" class="btn-gold text-lg">Become a Member</a>
-        <a href="#menu" class="bg-white text-primary font-bold py-3 px-8 rounded-lg hover:bg-gray-100 transition">View Menu</a>
-      </div>
-    </section>
-
-    <!-- MENU -->
-    <section id="menu" class="mb-20">
-      <div class="text-center mb-8">
-        <img src="https://i.postimg.cc/3xR5b3kM/garden-of-eden-logo-transparent.png" alt="Logo" class="h-12 mx-auto mb-2 opacity-70">
-        <p class="text-sm font-medium text-primary">Premium THC • Members Only</p>
-      </div>
-      <h2 class="text-4xl font-bold text-center mb-12 text-primary section-title">Members Menu</h2>
-      <div class="menu-card p-10 max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
-
-        <!-- LEFT: PRODUCTS -->
-        <div class="md:col-span-2 space-y-12">
-
-          <!-- STRAINS -->
-          <div class="pb-8 border-b border-gray-200">
-            <h3 class="text-2xl font-bold mb-6 text-primary">Strains</h3>
-            <div class="grid md:grid-cols-2 gap-6">
-
-              <!-- Tropical Skunk -->
-              <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-5 rounded-xl border border-green-100 text-center">
-                <img src="https://i.postimg.cc/rRCVR9G2/20251112-115445.jpg" alt="Tropical Skunk" class="w-full h-40 product-img mb-3">
-                <p class="text-lg font-semibold">10g – R120</p>
-                <p class="product-desc text-xs">Sativa-dominant. Pineapple + skunk. Uplifting & creative.</p>
-              </div>
-
-              <!-- Alpha Express -->
-              <div class="bg-gradient-to-br from-amber-50 to-yellow-50 p-5 rounded-xl border border-amber-100 text-center">
-                <img src="https://i.postimg.cc/D4dv4cQS/20251112-115355.jpg" alt="Alpha Express" class="w-full h-40 product-img mb-3">
-                <p class="text-lg font-semibold">40g – R450 <span class="text-xs text-amber-700">(Save R30)</span></p>
-                <p class="product-desc text-xs">Indica. Citrus + pine. Deep relaxation & sleep aid.</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- PRE-ROLLS & EDIBLES -->
-          <div class="grid md:grid-cols-2 gap-6">
-            <div>
-              <img src="https://i.postimg.cc/2LFkLxdb/20251112-114115.jpg" alt="Pre-rolls" class="w-full h-36 product-img mb-3">
-              <p class="font-semibold text-sm">10x Pre-rolls – R300</p>
-            </div>
-            <div>
-              <img src="https://i.postimg.cc/pXsH2Gx5/IMG-20251103-144536.jpg" alt="Gummies" class="w-full h-36 product-img mb-3">
-              <p class="font-semibold text-sm">15x Gummies – R90</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- RIGHT: HERO PRODUCT ROTATOR -->
-        <div class="hidden md:block bg-gradient-to-br from-primary/5 to-secondary/5 p-6 rounded-xl border border-primary/10">
-          <h4 class="font-bold text-primary mb-4">Featured Drop</h4>
-          <img src="https://i.postimg.cc/rRCVR9G2/20251112-115445.jpg" alt="Tropical Skunk" class="w-full rounded-lg shadow-lg mb-3">
-          <p class="font-semibold">Tropical Skunk</p>
-          <p class="text-sm text-gray-600">Now in stock. Limited 10g packs.</p>
-          <a href="https://wa.me/27812345678" class="block mt-3 btn-gold text-center text-sm">DM to Order</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- JOIN + LEAF BG -->
-    <section id="join" class="bg-white rounded-2xl shadow-xl p-10 mb-16 max-w-3xl mx-auto text-center leaf-bg">
-      <h2 class="text-4xl font-bold mb-6 text-primary section-title">Join The Garden</h2>
-      <p class="text-lg text-gray-700 mb-8">Exclusive access. Member pricing. Private drops.</p>
-      <button class="btn-gold text-lg mb-4" onclick="joinFree()">Join Free</button>
-      <p class="text-sm text-gray-500">Premium Membership: R399/month – Coming Soon</p>
-    </section>
-
-    <!-- FOOTER + PRODUCT STRIP -->
-    <div class="bg-primary/5 py-8 px-6 rounded-2xl mb-16 max-w-5xl mx-auto">
-      <p class="text-center font-medium text-primary mb-4">Top Sellers This Week</p>
-      <div class="grid grid-cols-3 gap-4 text-center">
-        <div>
-          <img src="https://i.postimg.cc/rRCVR9G2/20251112-115445.jpg" alt="" class="w-full h-20 product-img">
-          <p class="text-xs mt-1">Tropical Skunk</p>
-        </div>
-        <div>
-          <img src="https://i.postimg.cc/pXsH2Gx5/IMG-20251103-144536.jpg" alt="" class="w-full h-20 product-img">
-          <p class="text-xs mt-1">Gummy Bears</p>
-        </div>
-        <div>
-          <img src="https://i.postimg.cc/2LFkLxdb/20251112-114115.jpg" alt="" class="w-full h-20 product-img">
-          <p class="text-xs mt-1">Pre-rolls</p>
-        </div>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer class="bg-accent text-white py-12">
-    <div class="container mx-auto px-6 text-center">
-      <img src="https://i.postimg.cc/7Y8wZ2kL/garden-of-eden-logo-final.png" alt="Logo" class="footer-logo mb-4">
-      <p class="text-xl font-bold">The Garden Of Eden</p>
-      <p class="text-sm opacity-80 mb-4">Cannabis Club • Est. 2020</p>
-      <div class="flex justify-center gap-6 mt-6">
-        <a href="https://facebook.com/GardenOfEdenZA" target="_blank"><i data-feather="facebook" class="w-5 h-5"></i></a>
-        <a href="https://x.com/GardenOfEdenZA" target="_blank"><i data-feather="twitter" class="w-5 h-5"></i></a>
-        <a href="https://instagram.com/GardenOfEdenZA" target="_blank"><i data-feather="instagram" class="w-5 h-5"></i></a>
-        <a href="https://tiktok.com/@GardenOfEdenZA" target="_blank"><i data-feather="youtube" class="w-5 h-5"></i></a>
-      </div>
-      <p class="text-xs mt-6 opacity-70">Not sold to persons under 18. Private members club. #LegalizeIt</p>
-      <p class="text-xs">© <span id="year"></span>. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <!-- WHATSAPP FLOATING BUTTON -->
-  <a href="https://wa.me/27812345678?text=Hi,%20I'm%20interested%20in%20your%20menu!" 
-     class="whatsapp-float" 
-     target="_blank"
-     aria-label="Chat on WhatsApp">
+  <!-- WhatsApp Float -->
+  <a href="https://wa.me/27812345678?text=Hi%20Garden%20Of%20Eden!%20I'd%20like%20to%20know%20more%20about%20membership." 
+     class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
     <i data-feather="message-circle"></i>
   </a>
 
-  <!-- SCRIPTS -->
+  <!-- Hero Section -->
+  <section class="hero py-20 px-6 md:px-12 lg:px-24 xl:px-32">
+    <div class="max-w-7xl mx-auto text-center">
+      <h1 class="handwritten-title text-secondary mb-2 animate-pulse-slow">
+        THE GARDEN OF EDEN
+      </h1>
+      <p class="text-lg md:text-xl font-medium tracking-wider text-white/90">
+        Where Bliss Meets Bud...
+      </p>
+      <div class="mt-8">
+        <a href="#menu" class="btn-gold inline-block text-lg">
+          View Menu <i data-feather="arrow-down" class="inline w-5 h-5 ml-1"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="py-16 px-6 md:px-12 lg:px-24 xl:px-32 bg-white dark:bg-accent">
+    <div class="max-w-5xl mx-auto">
+
+      <!-- Strains -->
+      <div class="product-card mb-12 overflow-hidden">
+        <div class="bg-gradient-to-r from-primary to-accent p-6 text-white">
+          <h2 class="text-3xl md:text-4xl font-serif font-bold">STRAINS: TROPICAL SKUNK & ALPHA EXPRESS</h2>
+        </div>
+        <div class="p-8 space-y-4">
+          <div class="flex justify-between items-center text-lg md:text-xl font-semibold">
+            <span>R120 for 10grams</span>
+          </div>
+          <div class="flex justify-between items-center text-lg md:text-xl font-semibold text-green-600">
+            <span>R450 for 40grams</span>
+            <span class="text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full">save R30</span>
+          </div>
+        </div>
+        <div class="bg-gray-100 dark:bg-gray-800 h-48 md:h-64 flex items-center justify-center overflow-hidden">
+          <img 
+            src="https://images.pexels.com/photos/1639556/pexels-photo-1639556.jpeg?auto=compress&cs=tinysrgb&w=800" 
+            alt="Tropical Skunk & Alpha Express Buds" 
+            class="h-full w-full object-cover transform hover:scale-105 transition duration-500"
+            loading="lazy"
+          >
+        </div>
+      </div>
+
+      <!-- Pre-rolled Joints -->
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <div class="product-card">
+          <div class="bg-gradient-to-br from-amber-600 to-amber-700 p-5 text-white">
+            <h3 class="text-2xl font-serif font-bold">Pre-rolled Joints</h3>
+          </div>
+          <div class="p-6 space-y-3">
+            <p class="text-lg font-medium">10x Outdoor Pre-rolls: <span class="text-xl font-bold text-primary">R300</span></p>
+          </div>
+          <div class="bg-gray-100 dark:bg-gray-800 h-40 md:h-48 flex items-center justify-center overflow-hidden">
+            <img 
+              src="https://images.pexels.com/photos/12139369/pexels-photo-12139369.jpeg?auto=compress&cs=tinysrgb&w=800" 
+              alt="10x Outdoor Pre-rolls" 
+              class="h-full w-full object-cover transform hover:scale-105 transition duration-500 rounded-b-lg"
+              loading="lazy"
+            >
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="bg-gradient-to-br from-emerald-600 to-emerald-700 p-5 text-white">
+            <h3 class="text-2xl font-serif font-bold">Pre-rolled Joints</h3>
+          </div>
+          <div class="p-6 space-y-3">
+            <p class="text-lg font-medium">5x Greenhouse Pre-rolls: <span class="text-xl font-bold text-primary">R250</span></p>
+          </div>
+          <div class="bg-gray-100 dark:bg-gray-800 h-40 md:h-48 flex items-center justify-center overflow-hidden">
+            <img 
+              src="https://images.pexels.com/photos/6695905/pexels-photo-6695905.jpeg?auto=compress&cs=tinysrgb&w=800" 
+              alt="5x Greenhouse Pre-rolls" 
+              class="h-full w-full object-cover transform hover:scale-105 transition duration-500 rounded-b-lg"
+              loading="lazy"
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Edibles -->
+      <div class="product-card mb-12">
+        <div class="bg-gradient-to-r from-rose-600 to-pink-600 p-6 text-white">
+          <h2 class="text-3xl md:text-4xl font-serif font-bold">Edibles</h2>
+        </div>
+        <div class="p-8 space-y-5 text-lg">
+          <div class="flex justify-between">
+            <span>Gummy bears (10mg):</span>
+            <div class="text-right">
+              <span class="block">15x <strong>R90</strong></span>
+              <span class="block text-sm">||</span>
+              <span class="block">30x <strong>R150</strong></span>
+            </div>
+          </div>
+          <hr class="border-dashed border-gray-300 dark:border-gray-600">
+          <div class="flex justify-between">
+            <span>Leaf gummies (50mg):</span>
+            <div class="text-right">
+              <span class="block">2x <strong>R80</strong></span>
+              <span class="block text-sm">||</span>
+              <span class="block">5x <strong>R200</strong></span>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-100 dark:bg-gray-800 h-48 md:h-64 flex items-center justify-center overflow-hidden">
+          <img 
+            src="https://images.pexels.com/photos/5816859/pexels-photo-5816859.jpeg?auto=compress&cs=tinysrgb&w=800" 
+            alt="THC Gummy Bears & Leaf Gummies" 
+            class="h-full w-full object-cover transform hover:scale-105 transition duration-500"
+            loading="lazy"
+          >
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="text-center py-12">
+        <h3 class="text-3xl font-serif font-bold text-primary mb-4">CONTACT US NOW</h3>
+        <div class="flex justify-center space-x-6 text-3xl">
+          <a href="https://instagram.com/GardenOfEdenZA" target="_blank" class="text-pink-600 hover:scale-110 transition"><i data-feather="instagram"></i></a>
+          <a href="https://facebook.com/GardenOfEdenZA" target="_blank" class="text-blue-600 hover:scale-110 transition"><i data-feather="facebook"></i></a>
+          <a href="https://x.com/GardenOfEdenZA" target="_blank" class="text-black dark:text-white hover:scale-110 transition"><i data-feather="twitter"></i></a>
+          <a href="https://tiktok.com/@GardenOfEdenZA" target="_blank" class="text-black dark:text-white hover:scale-110 transition"><i data-feather="play-circle"></i></a>
+        </div>
+        <p class="mt-6 text-lg font-medium text-primary">@GardenOfEdenZA</p>
+      </div>
+
+      <!-- Age Warning -->
+      <div class="text-center py-8 border-t border-gray-300 dark:border-gray-700">
+        <p class="text-sm uppercase tracking-widest text-gray-600 dark:text-gray-400">
+          Not Sold To Persons Under The Age Of 18. #LegalizeIt
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dark Mode Toggle -->
+  <button id="darkModeToggle" class="fixed top-6 right-6 z-40 bg-white dark:bg-gray-800 p-3 rounded-full shadow-lg">
+    <i data-feather="moon" class="w-6 h-6 hidden dark:inline"></i>
+    <i data-feather="sun" class="w-6 h-6 dark:hidden"></i>
+  </button>
+
+  <!-- Scripts -->
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Age Gate
-    document.getElementById('verify-age').onclick = () => {
-      const birthYear = prompt("Enter your birth year:");
-      if (birthYear && new Date().getFullYear() - parseInt(birthYear) >= 18) {
-        document.getElementById('age-verification').remove();
-        localStorage.setItem('ageVerified', 'true');
-      } else {
-        alert("You must be 18+ to enter.");
-        window.location.href = "https://google.com";
-      }
-    };
-    document.getElementById('exit-site').onclick = () => window.location.href = "https://google.com";
-
-    if (localStorage.getItem('ageVerified') === 'true') {
-      document.getElementById('age-verification').remove();
-    } else {
-      document.body.style.overflow = 'hidden';
-    }
-
-    function joinFree() {
-      const email = prompt("Enter your email to join:");
-      if (email && email.includes('@')) {
-        alert("Welcome to the club!");
-      }
-    }
-
+    // Feather Icons
     feather.replace();
+
+    // Dark Mode Toggle
+    const toggle = document.getElementById('darkModeToggle');
+    toggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    });
+
+    // Respect system preference
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
   </script>
 </body>
 </html>
