@@ -303,6 +303,55 @@
       margin-top: 1rem; 
     }
 
+    /* STRAIN SELECTION STYLES */
+    .strain-option {
+      background: white;
+      border: 2px solid #e5e7eb;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s;
+      cursor: pointer;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .dark .strain-option {
+      background: #1a2a24;
+      border-color: #374151;
+      color: white;
+    }
+    .strain-option:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    .strain-option.selected {
+      border-color: var(--secondary);
+      box-shadow: 0 10px 25px rgba(212,175,55,0.3);
+    }
+    .strain-image {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .strain-name {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .strain-price {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary);
+      margin: 0.5rem 0;
+    }
+    .dark .strain-price {
+      color: var(--secondary);
+    }
+
     /* MEMBERSHIP OPTIONS STYLES */
     .membership-option {
       background: white;
@@ -354,6 +403,10 @@
     .membership-features li i {
       margin-right: 0.5rem;
       color: var(--secondary);
+    }
+    .feature-cancelled {
+      text-decoration: line-through;
+      opacity: 0.6;
     }
 
     /* LOADING */
@@ -465,7 +518,8 @@
       .option-btn {
         width: 100%;
       }
-      .membership-options-grid {
+      .membership-options-grid,
+      .strain-options-grid {
         grid-template-columns: 1fr !important;
       }
     }
@@ -544,33 +598,72 @@
       <!-- STRAINS -->
       <div class="product-card mb-12">
         <div class="bg-gradient-to-r from-primary to-accent p-6 text-white">
-          <h2 class="text-3xl md:text-4xl font-serif font-bold">STRAINS: TROPICAL SKUNK & ALPHA EXPRESS</h2>
+          <h2 class="text-3xl md:text-4xl font-serif font-bold">SELECT YOUR STRAIN</h2>
         </div>
-        <div class="p-8 space-y-6">
-          <div class="option-group" data-product-img="https://i.postimg.cc/QCvHP4HJ/20251112-115355.jpg">
-            <div class="option-btn selected" data-name="Alpha Express (10g)" data-price="120" data-id="alpha-express-10g">
-              <span>R120</span>
-              <small class="block text-xs">10g</small>
+        <div class="p-8">
+          <!-- Strain Selection -->
+          <div class="strain-options-grid grid md:grid-cols-2 gap-6 mb-8">
+            <!-- Tropical Skunk Option -->
+            <div class="strain-option selected" id="tropicalSkunkOption" data-strain="tropical-skunk" data-img="https://i.postimg.cc/QCvHP4HJ/20251112-115355.jpg">
+              <div>
+                <img src="https://i.postimg.cc/QCvHP4HJ/20251112-115355.jpg" alt="Tropical Skunk" class="strain-image">
+                <div class="strain-name">Tropical Skunk</div>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Exotic tropical flavor with skunky undertones</p>
+              </div>
+              <div>
+                <div class="option-group">
+                  <div class="option-btn selected" data-name="Tropical Skunk (10g)" data-price="120" data-id="tropical-skunk-10g">
+                    <span>R120</span>
+                    <small class="block text-xs">10g</small>
+                  </div>
+                  <div class="option-btn" data-name="Tropical Skunk (40g)" data-price="450" data-id="tropical-skunk-40g">
+                    <span>R450</span>
+                    <small class="block text-xs">40g <span class="text-green-600">Save R30</span></small>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="option-btn" data-name="Alpha Express (40g)" data-price="450" data-id="alpha-express-40g">
-              <span>R450</span>
-              <small class="block text-xs">40g <span class="text-green-600">Save R30</span></small>
+
+            <!-- Alpha Express Option -->
+            <div class="strain-option" id="alphaExpressOption" data-strain="alpha-express" data-img="https://i.postimg.cc/QCvHP4HJ/20251112-115355.jpg">
+              <div>
+                <img src="https://i.postimg.cc/QCvHP4HJ/20251112-115355.jpg" alt="Alpha Express" class="strain-image">
+                <div class="strain-name">Alpha Express</div>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Fast-acting hybrid with balanced effects</p>
+              </div>
+              <div>
+                <div class="option-group">
+                  <div class="option-btn selected" data-name="Alpha Express (10g)" data-price="120" data-id="alpha-express-10g">
+                    <span>R120</span>
+                    <small class="block text-xs">10g</small>
+                  </div>
+                  <div class="option-btn" data-name="Alpha Express (40g)" data-price="450" data-id="alpha-express-40g">
+                    <span>R450</span>
+                    <small class="block text-xs">40g <span class="text-green-600">Save R30</span></small>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="flex items-center justify-center gap-3">
-            <button class="qty-btn minus" aria-label="Decrease quantity">-</button>
-            <span class="qty-display">1</span>
-            <button class="qty-btn plus" aria-label="Increase quantity">+</button>
+
+          <!-- Quantity and Add to Cart -->
+          <div class="space-y-6">
+            <div class="flex items-center justify-center gap-3">
+              <button class="qty-btn minus" aria-label="Decrease quantity">-</button>
+              <span class="qty-display">1</span>
+              <button class="qty-btn plus" aria-label="Increase quantity">+</button>
+            </div>
+            <button class="add-selected-strain btn-gold w-full py-3 text-lg" aria-label="Add selected strain to cart">
+              Add to Cart <i data-feather="shopping-cart" class="inline w-5 h-5 ml-1"></i>
+            </button>
+            <div class="loading"></div>
           </div>
-          <button class="add-selected btn-gold w-full py-3 text-lg" aria-label="Add selected strain to cart">
-            Add to Cart <i data-feather="shopping-cart" class="inline w-5 h-5 ml-1"></i>
-          </button>
-          <div class="loading"></div>
         </div>
         <div class="bg-gray-100 dark:bg-gray-800 h-48 md:h-64 flex items-center justify-center overflow-hidden">
           <img 
+            id="strainDisplayImage"
             src="https://i.postimg.cc/QCvHP4HJ/20251112-115355.jpg" 
-            alt="Alpha Express Cannabis Strain" 
+            alt="Selected Strain" 
             class="h-full w-full object-cover" 
             loading="lazy"
             onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\\'text-center p-4\\'><i data-feather=\\'image\\' class=\\'w-12 h-12 mx-auto text-gray-400\\'></i><p class=\\'mt-2 text-gray-500\\'>Image not available</p></div>'; feather.replace();"
@@ -765,8 +858,8 @@
               <li><i data-feather="star" class="w-4 h-4"></i> 15% discount on all products</li>
               <li><i data-feather="star" class="w-4 h-4"></i> Early access to new strains</li>
               <li><i data-feather="star" class="w-4 h-4"></i> Priority delivery</li>
-              <li><i data-feather="star" class="w-4 h-4"></i> Exclusive member events</li>
-              <li><i data-feather="star" class="w-4 h-4"></i> Personal concierge service</li>
+              <li class="feature-cancelled"><i data-feather="x" class="w-4 h-4"></i> Exclusive member events</li>
+              <li class="feature-cancelled"><i data-feather="x" class="w-4 h-4"></i> Personal concierge service</li>
             </ul>
           </div>
           <button class="btn-gold w-full mt-4 bg-white text-black hover:bg-gray-100">Go Premium <i data-feather="award" class="inline w-4 h-4 ml-1"></i></button>
@@ -950,6 +1043,90 @@
       }
     }
 
+    // Strain Selection Manager
+    class StrainManager {
+      constructor() {
+        this.selectedStrain = 'tropical-skunk';
+        this.selectedOption = 'tropical-skunk-10g';
+        this.initializeStrainSelection();
+      }
+
+      initializeStrainSelection() {
+        // Set up strain selection
+        document.querySelectorAll('.strain-option').forEach(option => {
+          option.addEventListener('click', (e) => {
+            // Don't trigger if clicking on quantity buttons or option buttons
+            if (e.target.closest('.qty-btn') || e.target.closest('.option-btn')) {
+              return;
+            }
+            
+            this.selectStrain(option);
+          });
+        });
+
+        // Set up option selection within strains
+        document.querySelectorAll('.strain-option .option-btn').forEach(btn => {
+          btn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent strain selection
+            const strainOption = btn.closest('.strain-option');
+            this.selectOption(strainOption, btn);
+          });
+        });
+
+        // Initialize with default selection
+        this.selectStrain(document.getElementById('tropicalSkunkOption'));
+      }
+
+      selectStrain(strainElement) {
+        // Remove selected class from all strains
+        document.querySelectorAll('.strain-option').forEach(option => {
+          option.classList.remove('selected');
+        });
+
+        // Add selected class to clicked strain
+        strainElement.classList.add('selected');
+
+        // Update selected strain
+        this.selectedStrain = strainElement.dataset.strain;
+
+        // Update display image
+        const displayImage = document.getElementById('strainDisplayImage');
+        displayImage.src = strainElement.dataset.img;
+        displayImage.alt = strainElement.querySelector('.strain-name').textContent;
+
+        // Update selected option for this strain
+        const selectedOption = strainElement.querySelector('.option-btn.selected');
+        if (selectedOption) {
+          this.selectedOption = selectedOption.dataset.id;
+        }
+      }
+
+      selectOption(strainElement, optionElement) {
+        // Remove selected class from all options in this strain
+        strainElement.querySelectorAll('.option-btn').forEach(btn => {
+          btn.classList.remove('selected');
+        });
+
+        // Add selected class to clicked option
+        optionElement.classList.add('selected');
+
+        // Update selected option
+        this.selectedOption = optionElement.dataset.id;
+      }
+
+      getSelectedStrainData() {
+        const selectedStrainElement = document.querySelector('.strain-option.selected');
+        const selectedOptionElement = selectedStrainElement.querySelector('.option-btn.selected');
+        
+        return {
+          name: selectedOptionElement.dataset.name,
+          price: parseInt(selectedOptionElement.dataset.price),
+          img: selectedStrainElement.dataset.img,
+          id: selectedOptionElement.dataset.id
+        };
+      }
+    }
+
     // Form Validation Class
     class FormValidator {
       static validateName(name) {
@@ -1037,8 +1214,9 @@
       return div.innerHTML;
     }
 
-    // Initialize Cart Manager
+    // Initialize Managers
     const cartManager = new CartManager();
+    const strainManager = new StrainManager();
 
     // Age Verification
     document.getElementById('ageConfirm').onclick = () => {
@@ -1167,8 +1345,61 @@
       }, 1500);
     };
 
-    // Quantity Controls
-    document.querySelectorAll('.product-card').forEach(card => {
+    // Quantity Controls for Strains
+    const strainCard = document.querySelector('.product-card');
+    const minusBtn = strainCard.querySelector('.minus');
+    const plusBtn = strainCard.querySelector('.plus');
+    const qtyDisplay = strainCard.querySelector('.qty-display');
+
+    minusBtn.onclick = () => {
+      const current = parseInt(qtyDisplay.textContent);
+      qtyDisplay.textContent = Math.max(1, current - 1);
+    };
+
+    plusBtn.onclick = () => {
+      const current = parseInt(qtyDisplay.textContent);
+      qtyDisplay.textContent = current + 1;
+    };
+
+    // Add to Cart for Strains
+    document.querySelector('.add-selected-strain').onclick = async () => {
+      // Check membership
+      if (!cartManager.isMember()) {
+        showErrorMessage('Please join the club first!');
+        document.getElementById('membershipOptionsModal').style.display = 'block';
+        return;
+      }
+      
+      const button = document.querySelector('.add-selected-strain');
+      showLoading(button);
+      
+      try {
+        const qty = parseInt(qtyDisplay.textContent);
+        const strainData = strainManager.getSelectedStrainData();
+        
+        const item = {
+          name: strainData.name,
+          price: strainData.price,
+          img: strainData.img,
+          id: strainData.id,
+          qty: qty
+        };
+        
+        const added = cartManager.addItem(item);
+        
+        if (added) {
+          showSuccessMessage();
+        }
+      } catch (error) {
+        console.error('Error adding to cart:', error);
+        showErrorMessage('Failed to add item to cart');
+      } finally {
+        hideLoading(button);
+      }
+    };
+
+    // Quantity Controls for other products
+    document.querySelectorAll('.product-card:not(:first-child)').forEach(card => {
       const minus = card.querySelector('.minus');
       const plus = card.querySelector('.plus');
       const display = card.querySelector('.qty-display');
@@ -1186,8 +1417,8 @@
       }
     });
 
-    // Option Selection
-    document.querySelectorAll('.option-group').forEach(group => {
+    // Option Selection for other products
+    document.querySelectorAll('.option-group:not(.strain-option .option-group)').forEach(group => {
       group.querySelectorAll('.option-btn').forEach(btn => {
         btn.onclick = () => {
           group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
@@ -1196,8 +1427,8 @@
       });
     });
 
-    // Add to Cart Functionality
-    document.querySelectorAll('.add-selected, .add-to-cart-btn, .add-selected-edibles').forEach(btn => {
+    // Add to Cart Functionality for other products
+    document.querySelectorAll('.add-to-cart-btn, .add-selected-edibles').forEach(btn => {
       btn.onclick = async () => {
         // Check membership
         if (!cartManager.isMember()) {
@@ -1213,18 +1444,7 @@
           const qty = parseInt(card.querySelector('.qty-display').textContent);
           let added = false;
           
-          if (btn.classList.contains('add-selected')) {
-            const group = card.querySelector('.option-group');
-            const selected = group.querySelector('.option-btn.selected');
-            const item = {
-              name: selected.dataset.name,
-              price: parseInt(selected.dataset.price),
-              img: group.dataset.productImg,
-              id: selected.dataset.id,
-              qty: qty
-            };
-            added = cartManager.addItem(item);
-          } else if (btn.classList.contains('add-to-cart-btn')) {
+          if (btn.classList.contains('add-to-cart-btn')) {
             const data = JSON.parse(card.dataset.product);
             added = cartManager.addItem({ ...data, qty: qty });
           } else if (btn.classList.contains('add-selected-edibles')) {
