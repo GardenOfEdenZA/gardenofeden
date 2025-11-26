@@ -210,7 +210,7 @@
     }
 
     /* MODALS */
-    #ageGate, #cartPage, #membershipModal, #exclusiveModal, #deliveryModal { 
+    #ageGate, #cartPage, #membershipModal, #exclusiveModal, #deliveryModal, #membershipOptionsModal { 
       position: fixed; 
       top: 0; 
       left: 0; 
@@ -224,7 +224,7 @@
       transition: opacity 0.5s; 
       padding: 1rem;
     }
-    #cartPage, #membershipModal, #exclusiveModal, #deliveryModal { 
+    #cartPage, #membershipModal, #exclusiveModal, #deliveryModal, #membershipOptionsModal { 
       display: none; 
       overflow-y: auto; 
     }
@@ -301,6 +301,59 @@
       flex-wrap: wrap; 
       justify-content: center; 
       margin-top: 1rem; 
+    }
+
+    /* MEMBERSHIP OPTIONS STYLES */
+    .membership-option {
+      background: white;
+      border: 2px solid #e5e7eb;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s;
+      cursor: pointer;
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .dark .membership-option {
+      background: #1a2a24;
+      border-color: #374151;
+      color: white;
+    }
+    .membership-option:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border-color: var(--secondary);
+    }
+    .membership-option.premium {
+      border-color: var(--secondary);
+      background: linear-gradient(135deg, #1a3a32, #0f1e1a);
+      color: white;
+    }
+    .membership-option.premium:hover {
+      box-shadow: 0 10px 25px rgba(212,175,55,0.3);
+    }
+    .membership-price {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 0.5rem 0;
+    }
+    .membership-features {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+      text-align: left;
+    }
+    .membership-features li {
+      margin: 0.5rem 0;
+      display: flex;
+      align-items: center;
+    }
+    .membership-features li i {
+      margin-right: 0.5rem;
+      color: var(--secondary);
     }
 
     /* LOADING */
@@ -412,6 +465,9 @@
       .option-btn {
         width: 100%;
       }
+      .membership-options-grid {
+        grid-template-columns: 1fr !important;
+      }
     }
 
     @media (max-width: 768px) {
@@ -475,8 +531,8 @@
       <h1 class="handwritten-title text-secondary mb-2 animate-pulse-slow">THE GARDEN OF EDEN</h1>
       <p class="text-lg md:text-xl font-medium tracking-wider text-white/90">Where Bliss Meets Bud...</p>
       <div class="mt-8 space-x-4 hero-buttons">
-        <button id="openMembership" class="btn-gold inline-block text-lg">Join The Club (Free) <i data-feather="user-plus" class="inline w-5 h-5 ml-1"></i></button>
-        <a href="#menu" class="btn-gold inline-block text-lg">View Menu <i data-feather="arrow-down" class="inline w-5 h-5 ml-1"></i></a>
+        <button id="openMembershipOptions" class="btn-gold inline-block text-lg">Join The Club <i data-feather="user-plus" class="inline w-5 h-5 ml-1"></i></button>
+        <a href="#menu" class="btn-gold inline-block text-lg">View Products <i data-feather="arrow-down" class="inline w-5 h-5 ml-1"></i></a>
       </div>
     </div>
   </section>
@@ -639,7 +695,7 @@
         <button id="closeCart" class="text-2xl" aria-label="Close cart">×</button>
       </div>
       <div id="joinLaterBtn" class="hidden mb-4 text-center">
-        <button class="btn-gold text-sm py-2 px-6">Join The Club (Free) <i data-feather="user-plus" class="inline w-4 h-4 ml-1"></i></button>
+        <button class="btn-gold text-sm py-2 px-6">Join The Club <i data-feather="user-plus" class="inline w-4 h-4 ml-1"></i></button>
       </div>
       <div id="cartItems"></div>
       <div class="mt-6 pt-6 border-t border-gray-300 dark:border-gray-600 space-y-2">
@@ -670,6 +726,56 @@
         </div>
         <button id="confirmDelivery" class="btn-gold w-full py-3 text-lg">Confirm <i data-feather="check" class="inline w-5 h-5 ml-1"></i></button>
       </div>
+    </div>
+  </div>
+
+  <!-- MEMBERSHIP OPTIONS MODAL -->
+  <div id="membershipOptionsModal" style="display:none">
+    <div class="modal-content">
+      <div class="flex justify-between items-center mb-6">
+        <h2 class="text-3xl font-serif font-bold text-primary">Choose Your Membership</h2>
+        <button id="closeMembershipOptions" class="text-2xl" aria-label="Close membership options">×</button>
+      </div>
+      <p class="text-center mb-8 text-gray-600 dark:text-gray-400">Select the membership that's right for you</p>
+      
+      <div class="membership-options-grid grid md:grid-cols-2 gap-6 mb-8">
+        <!-- Free Membership Option -->
+        <div class="membership-option" id="freeMembershipOption">
+          <div>
+            <h3 class="text-2xl font-serif font-bold text-primary mb-2">Free Membership</h3>
+            <p class="text-gray-600 dark:text-gray-400 mb-4">Basic access to our products</p>
+            <div class="membership-price text-primary">FREE</div>
+            <ul class="membership-features">
+              <li><i data-feather="check" class="w-4 h-4"></i> Access to product catalog</li>
+              <li><i data-feather="check" class="w-4 h-4"></i> Standard pricing</li>
+              <li><i data-feather="check" class="w-4 h-4"></i> Regular updates</li>
+            </ul>
+          </div>
+          <button class="btn-gold w-full mt-4">Select Free <i data-feather="user" class="inline w-4 h-4 ml-1"></i></button>
+        </div>
+
+        <!-- Premium Membership Option -->
+        <div class="membership-option premium" id="premiumMembershipOption">
+          <div>
+            <h3 class="text-2xl font-serif font-bold text-secondary mb-2">Premium Membership</h3>
+            <p class="text-gray-200 mb-4">Exclusive benefits & discounts</p>
+            <div class="membership-price text-secondary">R420/month</div>
+            <ul class="membership-features">
+              <li><i data-feather="star" class="w-4 h-4"></i> <strong>All Free benefits</strong></li>
+              <li><i data-feather="star" class="w-4 h-4"></i> 15% discount on all products</li>
+              <li><i data-feather="star" class="w-4 h-4"></i> Early access to new strains</li>
+              <li><i data-feather="star" class="w-4 h-4"></i> Priority delivery</li>
+              <li><i data-feather="star" class="w-4 h-4"></i> Exclusive member events</li>
+              <li><i data-feather="star" class="w-4 h-4"></i> Personal concierge service</li>
+            </ul>
+          </div>
+          <button class="btn-gold w-full mt-4 bg-white text-black hover:bg-gray-100">Go Premium <i data-feather="award" class="inline w-4 h-4 ml-1"></i></button>
+        </div>
+      </div>
+      
+      <p class="text-center text-sm text-gray-500 dark:text-gray-400">
+        You can upgrade or downgrade at any time
+      </p>
     </div>
   </div>
 
@@ -942,9 +1048,8 @@
         timestamp: Date.now()
       }));
       
-      if (!cartManager.isMember()) {
-        document.getElementById('membershipModal').style.display = 'block';
-      }
+      // Show membership options after age verification
+      document.getElementById('membershipOptionsModal').style.display = 'block';
     };
 
     // Check if age is already verified
@@ -959,6 +1064,38 @@
         document.getElementById('ageGate').style.display = 'none';
       }
     }
+
+    // Membership Options Modal
+    document.getElementById('openMembershipOptions').onclick = () => {
+      document.getElementById('membershipOptionsModal').style.display = 'block';
+    };
+
+    document.getElementById('closeMembershipOptions').onclick = () => {
+      document.getElementById('membershipOptionsModal').style.display = 'none';
+    };
+
+    // Free Membership Selection
+    document.getElementById('freeMembershipOption').querySelector('button').onclick = () => {
+      document.getElementById('membershipOptionsModal').style.display = 'none';
+      document.getElementById('membershipModal').style.display = 'block';
+    };
+
+    // Premium Membership Selection
+    document.getElementById('premiumMembershipOption').querySelector('button').onclick = () => {
+      // For premium membership, we'll show a different flow
+      document.getElementById('membershipOptionsModal').style.display = 'none';
+      
+      // In a real implementation, this would redirect to payment
+      // For now, we'll show a message and then the regular membership form
+      showSuccessMessage('Premium membership selected! Redirecting to payment...');
+      
+      setTimeout(() => {
+        // After "payment" would be processed, show the membership form
+        document.getElementById('membershipModal').style.display = 'block';
+        // Store premium membership flag
+        localStorage.setItem('premiumMember', 'true');
+      }, 2000);
+    };
 
     // Membership Form Handling
     document.getElementById('membershipForm').onsubmit = (e) => {
@@ -1005,12 +1142,17 @@
       localStorage.setItem('memberEmail', sanitizeInput(email));
       
       document.getElementById('membershipModal').style.display = 'none';
-      document.getElementById('exclusiveModal').style.display = 'block';
       
-      showSuccessMessage('Welcome to the club!');
+      // Check if they selected premium
+      if (localStorage.getItem('premiumMember') === 'true') {
+        showSuccessMessage('Welcome to Premium Membership! Enjoy your exclusive benefits.');
+        localStorage.removeItem('premiumMember'); // Clean up
+      } else {
+        showSuccessMessage('Welcome to the club! You can upgrade to premium anytime.');
+      }
     };
 
-    // Upgrade and Skip Buttons
+    // Upgrade and Skip Buttons (for existing flow)
     document.getElementById('skipUpgrade').onclick = () => {
       localStorage.setItem('member', 'true');
       document.getElementById('exclusiveModal').style.display = 'none';
@@ -1060,7 +1202,7 @@
         // Check membership
         if (!cartManager.isMember()) {
           showErrorMessage('Please join the club first!');
-          document.getElementById('membershipModal').style.display = 'block';
+          document.getElementById('membershipOptionsModal').style.display = 'block';
           return;
         }
         
@@ -1123,7 +1265,7 @@
     cartButton.onclick = () => {
       if (!cartManager.isMember()) {
         showErrorMessage('Please join the club to shop!');
-        document.getElementById('membershipModal').style.display = 'block';
+        document.getElementById('membershipOptionsModal').style.display = 'block';
       } else {
         cartPage.style.display = 'block';
         cartManager.updateUI();
@@ -1199,7 +1341,8 @@
       { id: 'membershipModal', closeId: 'closeMembership' },
       { id: 'exclusiveModal', closeId: 'closeExclusive' },
       { id: 'deliveryModal', closeId: 'closeDelivery' },
-      { id: 'cartPage', closeId: 'closeCart' }
+      { id: 'cartPage', closeId: 'closeCart' },
+      { id: 'membershipOptionsModal', closeId: 'closeMembershipOptions' }
     ];
 
     modals.forEach(modal => {
@@ -1216,19 +1359,15 @@
     // Close modals when clicking outside
     window.onclick = (e) => {
       if (e.target.id === 'cartPage' || e.target.id === 'membershipModal' || 
-          e.target.id === 'exclusiveModal' || e.target.id === 'deliveryModal') {
+          e.target.id === 'exclusiveModal' || e.target.id === 'deliveryModal' ||
+          e.target.id === 'membershipOptionsModal') {
         e.target.style.display = 'none';
       }
     };
 
-    // Open Membership Modal
-    document.getElementById('openMembership').onclick = () => {
-      document.getElementById('membershipModal').style.display = 'block';
-    };
-
     // Join Later Button
     document.getElementById('joinLaterBtn').onclick = () => {
-      document.getElementById('membershipModal').style.display = 'block';
+      document.getElementById('membershipOptionsModal').style.display = 'block';
     };
 
     // Dark Mode Toggle
